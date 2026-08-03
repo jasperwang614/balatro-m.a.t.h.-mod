@@ -1,0 +1,43 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build mod zip
+        run: |
+          mkdir -p unproven
+          cp -r items localization assets main.lua unproven.json README.md .gitignore unproven/
+          zip -r "unproven-${GITHUB_REF_NAME}.zip" unproven
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: "unproven-*.zip"
+          body: |
+            # 未证之牌 UNPROVEN（数学主题 Balatro Mod）
+
+            v0.1.0 早期预览：32 张小丑——猜想、大事件、熵、梗、名数，含 v1.5 补遗先行卡。
+
+            ## 亮点
+            - 招牌：页边太窄（隐藏条件）、e（核弹）、蛰伏七年（期满一次性发放 5 张负片传奇 + 8 张负片消耗牌）
+            - 中国数学长廊：陈景润 1+2（哥德巴赫联动）、G2 in box（鸡兔同笼）、高斯求和
+            - 全卡中英双语文案
+
+            ## 安装
+            依赖 Lovely + Steamodded (SMODS) 1.0+，解压 `unproven` 文件夹到 `%APPDATA%/Balatro/Mods/`。
+
+            ## 已知事项
+            - 美术为原版占位，欢迎投稿（见 README《美术占位征集》，仓库含空白模板）
+            - 部分数值为草案，整局平衡待后续版本
+            - v0.1 未包含消耗牌 / Boss 盲注 / 优惠券等非 Joker 槽位
