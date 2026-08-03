@@ -1,0 +1,120 @@
+-- 悖论/幻灵槽位（设计文档 §2）：
+--   悖论（Tarot 槽）：熵增、蒙提霍尔、四色定理 1976
+--   幻灵（Spectral 槽）：巴拿赫-塔斯基、罗素的信
+-- “下一手牌 X”类一次性效果用 mod 自身的 calculate 实现
+-- （SMODS 自定义计分目标：不占卡槽、不触碰 vanilla 评分函数）。
+
+-- 熵增：本回合下一手牌，高牌 X3 / 对子 X2（鬼抽救星）
+-- 罗素的信：下一手牌 X2（配合“指定小丑失效”使用）
+UNPRV.calculate = function(self, context)
+    -- 一次性“下一手牌”倍率：在 initial_scoring_step 触发（该上下文在基础倍率定稿后、逐卡计分前，
+    -- 且带 scoring_name）。不能用 before 上下文——那之后基础倍率会被重新赋值，X 会被冲掉。
+    if context.initial_scoring_step and context.scoring_name and G.GAME then
+        local xmult = nil
+        if G.GAME.unprv_entropy then
+            G.GAME.unprv_entropy = nil
+            if context.scoring_name == 'High Card' then
+                xmult = 3
+            elseif context.scoring_name == 'Pair' then
+                xmult = 2
+            end
+        elseif G.GAME.unprv_russell then
+            G.GAME.unprv_russell = nil
+            xmult = 2
+        end
+        if xmult then
+            -- 直接乘全局 mult。mult 可能是普通数字，也可能是 Amulet 大数系统的
+            -- OmegaNum 对象（带算术元方法的 table）；只有旧格式字符串需要先转换。
+            if type(mult) == 'string' then
+                mult = mod_mult(UNPRV.num(mult) * xmult)
+            else
+                mult = mod_mult(mult * xmult)
+            end
+            return {
+                message = 'X' .. xmult,
+                colour = G.C.XMULT,
+            }
+        end
+    end
+    -- 回合结束清理未使用的一次性效果
+    if context.end_of_round then
+        if G.GAME then
+            G.GAME.unprv_entropy = nil
+            G.GAME.unprv_russell = nil
+        end
+    end
+end
+
+return {
+    SMODS.Consumable({
+        key = 'entropy',
+        set = 'Tarot',
+        config = { extra = {} },
+        cost = 3,
+        -- 占位：原版 Tarot 图集（0,2）帧，美术图集完成后换 unprv 图集
+        pos = { x = 0, y = 2 },
+        can_use = function(self, card)
+            return true
+        end,
+        use = function(self, card, area, copier)
+            G.GAME.unprv_entropy = true
+            card_eval_status_text(card, 'extra', nil, nil, nil, {
+                message = localize('unprv_entropy_pending'),
+                colour = G.C.XMULT,
+            })
+        end,
+    }),
+    SMODS.Consumable({
+        key = 'fourcolor',
+        set = 'Tarot',
+        config = { extra = {} },
+        cost = 3,
+        -- 占位：原版 Tarot 图集（1,2）帧
+        pos = { x = 1, y = 2 },
+        can_use = function(self, card)
+            if not G.hand or #G.hand.cards == 0 then return false end
+            local suits = {}
+            for _, c in ipairs(G.hand.cards) do
+                suits[c.base.suit] = true
+                if suits.Hearts and suits.Spades and suits.Diamonds and suits.Clubs then
+                    return true
+                end
+            end
+            return false
+        end,
+        use = function(self, card, area, copier)
+            local target = pseudorandom_element(G.hand.cards, 'unprv_fourcolor')
+            if target then
+                target:set_edition({ polychrome = true }, true)
+                target:juice_up(0.3, 0.5)
+                play_sound('card1', 0.9, 0.5)
+            end
+        end,
+    }),
+    SMODS.Consumable({
+        key = 'monty',
+        set = 'Tarot',
+        config = { extra = {} },
+        cost = 3,
+        -- 占位：原版 Tarot 图集（9,1）帧
+        pos = { x = 9, y = 1 },
+        can_use = function(self, card)
+            return true
+        end,
+        use = function(self, card, area, copier)
+            local function unprv_monty_draw()
+                local c = SMODS.create_card({ set = 'Playing Card', area = G.hand })
+                if c then
+                    c:add_to_deck()
+                    G.hand:emplace(c)
+                    c:juice_up(0.3, 0.5)
+                end
+                return c
+            end
+            -- 50% 概率“换门”再得一张
+            if unprv_monty_draw() and pseudorandom('unprv_monty') > 0.5 then
+                unprv_monty_draw()
+            end
+        end,
+    }),
+}

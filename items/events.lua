@@ -31,6 +31,54 @@ local function unprv_has_joker(key)
     return false
 end
 
+-- 拒领百万：利息与跳过的盲注奖励被拒领，每 $1 → +2 倍率；累计少吃 $100 → X10000
+local function unprv_has_perelman()
+    return unprv_has_joker('j_unprv_perelman')
+end
+
+-- 本回合应发的利息（与结算逻辑同款公式）
+local function unprv_perelman_interest()
+    if G.GAME.dollars >= 5 and not G.GAME.modifiers.no_interest then
+        return G.GAME.interest_amount * math.min(math.floor(G.GAME.dollars / 5), G.GAME.interest_cap / 5)
+    end
+    return 0
+end
+
+-- 被跳过的盲注奖励金额（小 3 / 大 4 / Boss 5）
+local function unprv_perelman_skip_reward()
+    local skipped = G.GAME.blind_on_deck or 'Small'
+    if skipped == 'Small' then
+        return G.P_BLINDS.bl_small and G.P_BLINDS.bl_small.dollars or 3
+    elseif skipped == 'Big' then
+        return G.P_BLINDS.bl_big and G.P_BLINDS.bl_big.dollars or 4
+    end
+    return 5
+end
+
+-- 少吃入账：+2 倍率/$1，累计满 $100 达成 X10000
+local function unprv_perelman_grow(e, amount)
+    if amount <= 0 then return false end
+    e.refused = e.refused + amount
+    e.mult = e.mult + amount * 2
+    if e.refused >= 100 and not e.milestone then
+        e.milestone = true
+        return true
+    end
+    return false
+end
+
+-- 拒领百万：结算界面不显示利息行（已被拒领），其余收入行照常
+local add_round_eval_row_ref = add_round_eval_row
+function add_round_eval_row(config)
+    config = config or {}
+    if unprv_has_perelman() and config.name == 'interest' then
+        return
+    end
+    if add_round_eval_row_ref then
+        add_round_eval_row_ref(config)
+    end
+end
+
 -- 蛰伏七年：期满一次性发放负片传奇小丑 + 负片消耗牌（“七年蛰伏，一鸣惊人”）
 local function unprv_zhang_spawn(card)
     local e = card.ability.extra
@@ -289,6 +337,130 @@ return {
                             e.triggered = true
                             unprv_zhang_spawn(card)
                         end
+                    end
+                end
+            end,
+        }),
+        SMODS.Joker({
+            key = 'perelman',
+            config = { extra = { refused = 0, mult = 0, milestone = false, counted_round = 0 } },
+            rarity = 3,          -- Rare
+            cost = 8,
+            -- 占位：原版（5,4）帧，美术图集完成后换 unprv_jokers
+            pos = { x = 5, y = 4 },
+            -- 拒领百万：无法出售
+            can_sell = function(self, card, context)
+                return false
+            end,
+            blueprint_compat = true,
+            eternal_compat = true,
+            perishable_compat = true,
+            order = 16,
+            loc_vars = function(self, info_queue, card)
+                local e = card.ability.extra
+                return { vars = { e.refused, e.mult } }
+            end,
+            calculate = function(self, card, context)
+                local e = card.ability.extra
+                -- 利息被拒领：应发的利息不进钱包，转为 +2 倍率/$1
+                -- 静默转换 + 按回合去重：end_of_round 一回合会被派发多次（原版 end_round 调两次、
+                -- 下回合开局还会再触发一次），消息会排队拖慢结算，这里一律不返回。
+                if context.end_of_round and context.main_eval and not context.individual and not context.blueprint and not context.retrigger_joker then
+                    if e.counted_round ~= G.GAME.round then
+                        e.counted_round = G.GAME.round
+                        local amount = unprv_perelman_interest()
+                        unprv_perelman_grow(e, amount)
+                        if amount > 0 then
+                            card:juice_up(0.3, 0.4)
+                        end
+                    end
+                end
+                -- 结算总额里扣除利息部分（其余收入照常入袋）
+                if context.modify_final_cashout and not context.blueprint then
+                    local amount = unprv_perelman_interest()
+                    if amount > 0 and SMODS.cashout_dollars then
+                        SMODS.cashout_dollars = math.max(0, UNPRV.num(SMODS.cashout_dollars) - amount)
+                    end
+                end
+                -- 跳过盲注：放弃的盲注奖励转为 +2 倍率/$1
+                if context.skip_blind and not context.blueprint then
+                    local amount = unprv_perelman_skip_reward()
+                    local hit_milestone = unprv_perelman_grow(e, amount)
+                    return {
+                        message = '少吃 $' .. amount .. '：+' .. (amount * 2) .. ' 倍率',
+                        colour = G.C.MULT,
+                    }
+                end
+                -- 计分：平铺 +2/$1 倍率；少吃满 $100 后永久 X10000
+                if context.joker_main and not context.blueprint then
+                    if e.milestone then
+                        return {
+                            message = 'X10000',
+                            mult = e.mult,
+                            xmult = 10000,
+                            colour = G.C.XMULT,
+                        }
+                    end
+                    if e.mult > 0 then
+                        return {
+                            message = '+' .. e.mult,
+                            mult = e.mult,
+                            colour = G.C.MULT,
+                        }
+                    end
+                end
+            end,
+        }),
+        SMODS.Joker({
+            key = 'calabiyau',
+            config = { extra = { counted_round = 0 } },
+            rarity = 3,          -- Rare
+            cost = 10,
+            -- 占位：原版（5,0）帧，美术图集完成后换 unprv_jokers
+            pos = { x = 5, y = 0 },
+            blueprint_compat = true,
+            eternal_compat = true,
+            perishable_compat = true,
+            order = 17,
+            loc_vars = function(self, info_queue, card)
+                local view = ((G.GAME.round or 1) - 1) % 4
+                return { vars = { localize('unprv_calabiyau_v' .. view) } }
+            end,
+            calculate = function(self, card, context)
+                -- 视角由回合号决定（跳过盲注也算一回合）：
+                -- 第1回合 +100筹码，第2 +20倍率，第3 X2，第4 +$8，四回合循环
+                local view = ((G.GAME.round or 1) - 1) % 4
+                -- 视角 0/1/2：计分时每手牌生效
+                if context.joker_main and not context.blueprint then
+                    if view == 0 then
+                        return {
+                            message = '+100',
+                            chips = 100,
+                            colour = G.C.CHIPS,
+                        }
+                    elseif view == 1 then
+                        return {
+                            message = '+20',
+                            mult = 20,
+                            colour = G.C.MULT,
+                        }
+                    elseif view == 2 then
+                        return {
+                            message = 'X2',
+                            xmult = 2,
+                            colour = G.C.XMULT,
+                        }
+                    end
+                end
+                -- 视角 3：回合结束发 $8（按回合去重，end_of_round 一回合派发多次）
+                if context.end_of_round and context.main_eval and not context.individual and not context.blueprint and not context.retrigger_joker then
+                    if view == 3 and card.ability.extra.counted_round ~= G.GAME.round then
+                        card.ability.extra.counted_round = G.GAME.round
+                        return {
+                            message = '+$8',
+                            dollars = 8,
+                            colour = G.C.MONEY,
+                        }
                     end
                 end
             end,

@@ -279,10 +279,92 @@ return {
                     "{C:inactive}Every 4-digit number falls into the hole.{}",
                 },
             },
+            j_unprv_wlog = {
+                name = "WLOG",
+                text = {
+                    "Once per round: {C:attention}click this joker{}, then click",
+                    "a card in hand to {C:attention}set its rank{} to any value",
+                    "{C:inactive}WLOG, this card is a K.{}",
+                    "{C:red}#1#{}",
+                },
+            },
+            j_unprv_perelman = {
+                name = "Perelman",
+                text = {
+                    "{C:attention}Cannot be sold{}",
+                    "Interest and skipped blind rewards are refused:",
+                    "each {C:money}$1{} → {C:mult}+2{} Mult",
+                    "Refuse {C:money}$100{} total → {X:mult,C:white}X10000{} Mult",
+                    "Refused {C:money}$#1#{} · {C:mult}+#2#{} Mult",
+                    "{C:inactive}I don't need to be recognized.{}",
+                },
+            },
+            j_unprv_calabiyau = {
+                name = "Calabi–Yau Manifold",
+                text = {
+                    "Each round, rotate to a new \"view\":",
+                    "{C:chips}+100{} Chips → {C:mult}+20{} Mult → {X:mult,C:white}X2{} Mult → {C:money}+$8{}",
+                    "Current view: #1#",
+                    "「落花人獨立，微雨燕雙飛。」",
+                },
+            },
+            j_unprv_zero = {
+                name = "Zero",
+                text = {
+                    "Once per round: {C:attention}click this joker{}, then click",
+                    "a card in hand to make it {C:attention}nonexistent{}:",
+                    "counts as {C:attention}any rank{} for hand type, never scores",
+                    "Each zeroed card: permanent {C:chips}+25{} Chips",
+                    "Zeroed {C:attention}#1#{} · {C:chips}+#2#{} Chips",
+                    "{C:red}#3#{}",
+                    "{C:inactive}Florence once banned this number by law.{}",
+                },
+            },
+        },
+        Tarot = {
+            c_unprv_entropy = {
+                name = "Entropy",
+                text = {
+                    "Your next hand this round:",
+                    "High Card {X:mult,C:white}X3{}, Pair {X:mult,C:white}X2{}",
+                    "{C:inactive}The universe tends toward disorder. You are no exception.{}",
+                },
+            },
+            c_unprv_fourcolor = {
+                name = "Four Color Theorem 1976",
+                text = {
+                    "Usable when your hand has {C:attention}all four suits{}:",
+                    "randomly turn {C:attention}1{} card into a {C:dark_edition}Polychrome{}",
+                },
+            },
+            c_unprv_monty = {
+                name = "Monty Hall Problem",
+                text = {
+                    "Add {C:attention}1{} random card to your hand",
+                    "{C:green}50%{} chance to add {C:attention}1{} more",
+                    "{C:inactive}Do you switch?{}",
+                },
+            },
         },
     },
-    Misc = {
-        unprv_e_chips = "Chips^e",
-        unprv_e_mult = "Mult^e",
+    misc = {
+        dictionary = {
+            unprv_e_chips = "Chips^e",
+            unprv_e_mult = "Mult^e",
+            unprv_wlog_title = "Set this card to...",
+            unprv_wlog_target = "Pick a rank (2~A)",
+            unprv_wlog_hint = "Select a card in hand",
+            unprv_wlog_used = "Already used this round",
+            unprv_wlog_done = "Set to",
+            unprv_wlog_cancel = "Cancel",
+            unprv_wlog_canceled = "Cancelled",
+            unprv_calabiyau_v0 = "+100 Chips",
+            unprv_calabiyau_v1 = "+20 Mult",
+            unprv_calabiyau_v2 = "X2 Mult",
+            unprv_calabiyau_v3 = "+$8",
+            unprv_zero_done = "Made it nonexistent",
+            unprv_zero_already = "Already nonexistent",
+            unprv_entropy_pending = "Entropy building",
+        },
     },
 }

@@ -62,8 +62,10 @@ return {
                 name = "拒领百万",
                 text = {
                     "{C:attention}无法出售{}",
-                    "每次跳过奖励或不领取利息",
-                    "{X:mult,C:white}+0.5{} X 倍率",
+                    "利息与跳过的盲注奖励被拒领：",
+                    "每 {C:money}$1{} → {C:mult}+2{} 倍率",
+                    "累计少吃 {C:money}$100{} → {X:mult,C:white}X10000{}",
+                    "已少吃 {C:money}$#1#{} · {C:mult}+#2#{} 倍率",
                     "{C:inactive}我不需要被承认{}",
                 },
             },
@@ -80,6 +82,7 @@ return {
                 text = {
                     "每回合輪換一個「視角」：",
                     "{C:chips}+100{} 籌碼 → {C:mult}+20{} 倍率 → {X:mult,C:white}X2{} 倍率 → {C:money}+$8{}",
+                    "當前視角：#1#",
                     "「落花人獨立，微雨燕雙飛。」",
                 },
             },
@@ -127,9 +130,10 @@ return {
             j_unprv_wlog = {
                 name = "不妨设",
                 text = {
-                    "每回合一次：将 {C:attention}1{} 张手牌",
-                    "点数{C:attention}设{}为任意值",
+                    "每回合一次：{C:attention}点击本卡{}，再点击",
+                    "一张手牌，将其点数{C:attention}设{}为任意值",
                     "{C:inactive}不妨设这张是 K{}",
+                    "{C:red}#1#{}",
                 },
             },
             j_unprv_symmetry = {
@@ -193,8 +197,11 @@ return {
             j_unprv_zero = {
                 name = "零",
                 text = {
-                    "每回合一次：令 {C:attention}1{} 张手牌",
-                    "{C:attention}不存在{}——不计分但计入牌型判定",
+                    "每回合一次：{C:attention}点击本卡{}再点击手牌",
+                    "令其不存在：牌型判定中视为{C:attention}任意点数{}",
+                    "每零化一张永久 {C:chips}+25{} 筹码",
+                    "已零化 {C:attention}#1#{} 张 · {C:chips}+#2#{} 筹码",
+                    "{C:red}#3#{}",
                     "{C:inactive}佛罗伦萨曾立法禁用这个数字{}",
                 },
             },
@@ -386,6 +393,20 @@ return {
             k_unprv_counterintuitive = "反直觉",
             unprv_e_chips = "筹码^e",
             unprv_e_mult = "倍率^e",
+            unprv_wlog_title = "将这张牌设为……",
+            unprv_wlog_target = "点选点数（2~A）",
+            unprv_wlog_hint = "选择一张手牌",
+            unprv_wlog_used = "本回合已使用",
+            unprv_wlog_done = "已设为",
+            unprv_wlog_cancel = "取消",
+            unprv_wlog_canceled = "已取消",
+            unprv_calabiyau_v0 = "+100 籌碼",
+            unprv_calabiyau_v1 = "+20 倍率",
+            unprv_calabiyau_v2 = "X2 倍率",
+            unprv_calabiyau_v3 = "+$8",
+            unprv_zero_done = "已令其不存在",
+            unprv_zero_already = "这张牌已不存在",
+            unprv_entropy_pending = "熵增蓄势",
         },
     },
 }

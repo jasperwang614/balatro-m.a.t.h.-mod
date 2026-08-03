@@ -6,7 +6,7 @@
     "description": "把数学猜想、数学史大事件、熵与数学梗做进小丑牌。Math conjectures, history, entropy and memes in Balatro.",
     "prefix": "unprv",
     "main_file": "main.lua",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "priority": 0,
     "badge_colour": "1a1a2e",
     "badge_text_colour": "FFFFFF",
