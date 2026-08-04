@@ -9,6 +9,57 @@ return {
                     "{C:inactive}Score 2 and 7 together: {X:mult,C:white}X2.7{C:inactive} Mult{}",
                 },
             },
+            j_unprv_pythagoras = {
+                name = "Pythagoras",
+                text = {
+                    "Each {C:attention}scoring card{} gives",
+                    "{C:chips}+rank²{} Chips (A^2=196, K^2=169...)",
+                    "e.g. 5^2=25, 7^2=49",
+                    "{C:inactive}All is number.{}",
+                },
+            },
+            j_unprv_riemann = {
+                name = "Riemann",
+                text = {
+                    "After each hand played, gain",
+                    "{C:mult}+#1#{} Mult per card in that hand (Riemann sum)",
+                    "{C:inactive}The zeros lie on the critical line.{}",
+                },
+            },
+            j_unprv_poincare = {
+                name = "Poincare",
+                text = {
+                    "When you play {C:attention}3{} cards: {C:mult}+#1#{} Mult",
+                    "{C:inactive}With Perelman: {X:mult,C:white}X#2#{} instead (conjecture proven){}",
+                },
+            },
+            j_unprv_godel = {
+                name = "Godel",
+                text = {
+                    "After each hand, gain {C:mult}+#1#{} Mult",
+                    "First time Mult exceeds {C:attention}#2#{}: {X:mult,C:white}X2{}",
+                    "{C:inactive}This statement is unprovable.{}",
+                },
+            },
+            j_unprv_hilbert = {
+                name = "Hilbert's Hotel",
+                text = {
+                    "{C:attention}+#1#{} Hand Size",
+                    "At end of round, if hand is {C:attention}exactly full{},",
+                    "a random card gains a {C:dark_edition}random Edition{} (Foil/Holo/Polychrome)",
+                    "{C:inactive}Full forever, but always room for one more.{}",
+                },
+            },
+            j_unprv_fields = {
+                name = "Fields Medal",
+                text = {
+                    "For each {C:attention}mathematician{} Joker:",
+                    "{C:mult}+#1#{} Mult, {C:chips}+#2#{} Chips",
+                    "End of round: {C:money}+$1{} each",
+                    "Mathematicians: {C:attention}#3#{}",
+                    "{C:inactive}The highest honor in mathematics.{}",
+                },
+            },
             j_unprv_goldbach = {
                 name = "Goldbach",
                 text = {

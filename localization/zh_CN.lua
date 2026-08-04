@@ -9,6 +9,57 @@ return {
                     "{C:inactive}同手牌计分 2 与 7 时，{X:mult,C:white}X2.7{C:inactive} 倍率{}",
                 },
             },
+            j_unprv_pythagoras = {
+                name = "毕达哥拉斯",
+                text = {
+                    "每张{C:attention}计分牌{}获得",
+                    "{C:chips}+点数²{}筹码（A²=196、K²=169…）",
+                    "如 5²=25、7²=49",
+                    "{C:inactive}万物皆数。{}",
+                },
+            },
+            j_unprv_riemann = {
+                name = "黎曼",
+                text = {
+                    "每手牌结束后，按本手牌张数",
+                    "{C:mult}+#1#{} 倍率/张（黎曼和：积分累加）",
+                    "{C:inactive}ζ(s) 的非平凡零点都在临界线上。{}",
+                },
+            },
+            j_unprv_poincare = {
+                name = "庞加莱",
+                text = {
+                    "打出 {C:attention}3{} 张牌时：{C:mult}+#1#{} 倍率",
+                    "{C:inactive}佩雷尔曼在场时改为 {X:mult,C:white}X#2#{}（猜想已被证明）{}",
+                },
+            },
+            j_unprv_godel = {
+                name = "哥德尔",
+                text = {
+                    "每手牌结束 {C:mult}+#1#{} 倍率",
+                    "累计倍率首次超过 {C:attention}#2#{} 时 {X:mult,C:white}X2{}",
+                    "{C:inactive}本语句不可证明。{}",
+                },
+            },
+            j_unprv_hilbert = {
+                name = "希尔伯特旅馆",
+                text = {
+                    "手牌上限 {C:attention}+#1#{}",
+                    "回合结束手牌{C:attention}恰好满员{}时，随机{C:attention}1{}张手牌获得",
+                    "{C:dark_edition}随机版本{}（闪箔/全息/多彩）",
+                    "{C:inactive}旅馆永远满员，永远有房间。{}",
+                },
+            },
+            j_unprv_fields = {
+                name = "菲尔兹奖",
+                text = {
+                    "每有 {C:attention}1{} 张数学家小丑：",
+                    "{C:mult}+#1#{} 倍率、{C:chips}+#2#{} 筹码",
+                    "回合结束每张{C:money}+$1{}",
+                    "当前数学家 {C:attention}#3#{}",
+                    "{C:inactive}数学界的最高荣誉。{}",
+                },
+            },
             j_unprv_goldbach = {
                 name = "哥德巴赫猜想",
                 text = {

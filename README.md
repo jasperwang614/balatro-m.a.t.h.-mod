@@ -2,7 +2,7 @@
 
 数学主题 Balatro 内容 Mod：猜想、大事件、熵、梗、名数——把整个数学宇宙做进小丑牌。
 
-**v0.2 早期预览**：v1 核心包 28 张小丑全部实装，悖论（消耗牌）先行 3 张，美术为原版占位，数值待整局平衡。欢迎试玩、反馈与投稿美术。
+**v0.3 早期预览**：v1 核心包 28 张 + 补遗先行 8 张 + 数学家线 6 张（共 42 张小丑）全部实装，悖论（消耗牌）先行 3 张，美术为原版占位，数值待整局平衡。欢迎试玩、反馈与投稿美术。
 
 ## 安装
 
@@ -10,7 +10,7 @@
 2. 将本文件夹放入 `%APPDATA%/Balatro/Mods/`。
 3. 启动游戏，MODS 菜单应能看到 UNPROVEN。
 
-## 内容（v0.2 · 36 张 Joker + 3 张悖论）
+## 内容（v0.3 · 42 张 Joker + 3 张悖论）
 
 猜想线：冰雹猜想、哥德巴赫猜想、卡塔兰猜想
 
@@ -21,6 +21,8 @@
 梗线：e、73、0.999…=1、1+1=10、由对称性、奇变偶不变、蒙特卡洛方法、二八定律、中心极限定理、注意到……、不妨设
 
 名数线：777、φ·黄金分割、24 点、1729、棋盘麦粒、数字黑洞 6174、零
+
+数学家线（v1.5 先行）：毕达哥拉斯、黎曼、庞加莱、哥德尔、希尔伯特旅馆、菲尔兹奖（数学家计数引擎）
 
 补遗线（v1.5 先行）：G2 in box（鸡兔同笼）、陈景润 1+2、高斯求和
 
@@ -50,4 +52,4 @@ Mod 内容与代码版权归作者 jasperwang614。原版游戏版权归 LocalTh
 
 ---
 
-EN: Math-themed Balatro content mod — conjectures, history, entropy and memes. v0.2 early preview: all 28 core jokers plus 3 Paradox consumables, placeholder art, requires Lovely + Steamodded 1.0+. See `%APPDATA%/Balatro/Mods/` for installation.
+EN: Math-themed Balatro content mod — conjectures, history, entropy and memes. v0.3 early preview: 42 jokers (28 core + 8 addendum + 6 mathematicians) plus 3 Paradox consumables, placeholder art, requires Lovely + Steamodded 1.0+. See `%APPDATA%/Balatro/Mods/` for installation.
