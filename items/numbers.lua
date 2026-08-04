@@ -167,7 +167,7 @@ return {
         SMODS.Joker({
             key = "wheat",
             config = {
-                extra = { mult = 1, limit = 64, money = 64 },
+                extra = { mult = 1, limit = 64, money = 64, counted_round = 0 },
             },
             rarity = 3,          -- Rare
             cost = 8,
@@ -186,32 +186,36 @@ return {
                         colour = G.C.MULT,
                     }
                 end
-                if context.end_of_round and not context.blueprint and not context.retrigger_joker then
+                -- end_of_round 一回合会派发多次，必须按回合去重，否则倍率连翻直接冲到 64
+                if context.end_of_round and context.main_eval and not context.individual and not context.blueprint and not context.retrigger_joker then
                     local e = card.ability.extra
-                    local new_mult = e.mult * 2
-                    if new_mult >= e.limit then
-                        ease_dollars(e.money)
-                        card_eval_status_text(card, 'extra', nil, nil, nil, { message = "+$" .. e.money, colour = G.C.MONEY })
-                        G.E_MANAGER:add_event(Event({
-                            func = function()
-                                play_sound('tarot1')
-                                card.T.r = -0.2
-                                card:juice_up(0.3, 0.4)
-                                card.states.drag.is = true
-                                card.children.center.pinch.x = true
-                                G.E_MANAGER:add_event(Event({
-                                    trigger = 'after', delay = 0.2,
-                                    func = function()
-                                        card:remove()
-                                        return true
-                                    end
-                                }))
-                                return true
-                            end
-                        }))
-                    else
-                        e.mult = new_mult
-                        card:set_cost()
+                    if e.counted_round ~= G.GAME.round then
+                        e.counted_round = G.GAME.round
+                        local new_mult = e.mult * 2
+                        if new_mult >= e.limit then
+                            ease_dollars(e.money)
+                            card_eval_status_text(card, 'extra', nil, nil, nil, { message = "+$" .. e.money, colour = G.C.MONEY })
+                            G.E_MANAGER:add_event(Event({
+                                func = function()
+                                    play_sound('tarot1')
+                                    card.T.r = -0.2
+                                    card:juice_up(0.3, 0.4)
+                                    card.states.drag.is = true
+                                    card.children.center.pinch.x = true
+                                    G.E_MANAGER:add_event(Event({
+                                        trigger = 'after', delay = 0.2,
+                                        func = function()
+                                            card:remove()
+                                            return true
+                                        end
+                                    }))
+                                    return true
+                                end
+                            }))
+                        else
+                            e.mult = new_mult
+                            card:set_cost()
+                        end
                     end
                 end
             end,

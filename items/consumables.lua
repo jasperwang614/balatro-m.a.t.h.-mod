@@ -41,6 +41,17 @@ UNPRV.calculate = function(self, context)
         if G.GAME then
             G.GAME.unprv_entropy = nil
             G.GAME.unprv_russell = nil
+            -- 罗素的信：回合结束给小丑解禁
+            if G.GAME.unprv_russell_joker then
+                local j = G.GAME.unprv_russell_joker
+                G.GAME.unprv_russell_joker = nil
+                if j then
+                    if j.debuff then
+                        j:set_debuff(false)
+                    end
+                    j:remove_sticker('unprv_letter')
+                end
+            end
         end
     end
 end
@@ -115,6 +126,66 @@ return {
             if unprv_monty_draw() and pseudorandom('unprv_monty') > 0.5 then
                 unprv_monty_draw()
             end
+        end,
+    }),
+    SMODS.Consumable({
+        key = 'banach',
+        set = 'Spectral',
+        config = { extra = {} },
+        cost = 4,
+        -- 占位：原版 Spectral Ankh（复制主题）帧
+        pos = { x = 0, y = 5 },
+        can_use = function(self, card)
+            return G.hand and #G.hand.highlighted >= 1
+        end,
+        use = function(self, card, area, copier)
+            local target = G.hand.highlighted[1]
+            if not target then
+                return
+            end
+            -- 巴拿赫-塔斯基：销毁 1 张手牌，加入 2 张完全复制
+            local copies = { copy_card(target, nil), copy_card(target, nil) }
+            if SMODS.shatters(target) then
+                target:shatter()
+            else
+                target:start_dissolve(nil, true)
+            end
+            for _, c in ipairs(copies) do
+                c:add_to_deck()
+                G.hand:emplace(c)
+                c:juice_up(0.3, 0.5)
+            end
+            G.hand:unhighlight_all()
+        end,
+    }),
+    SMODS.Consumable({
+        key = 'russell',
+        set = 'Spectral',
+        config = { extra = {} },
+        cost = 4,
+        -- 占位：原版 Spectral Hex（小丑主题）帧
+        pos = { x = 2, y = 5 },
+        can_use = function(self, card)
+            return G.jokers and #G.jokers.highlighted >= 1
+        end,
+        use = function(self, card, area, copier)
+            local target = G.jokers.highlighted[1]
+            if not target then
+                return
+            end
+            -- 罗素的信：指定小丑失效 1 回合（原版 debuff 逻辑），下一手牌 X2
+            G.GAME.unprv_russell_joker = target
+            if not target.debuff then
+                target:set_debuff(true)
+            end
+            target:add_sticker('unprv_letter', true)
+            G.GAME.unprv_russell = true
+            target:juice_up(0.3, 0.5)
+            card_eval_status_text(card, 'extra', nil, nil, nil, {
+                message = localize('unprv_russell_pending'),
+                colour = G.C.MULT,
+            })
+            G.jokers:unhighlight_all()
         end,
     }),
 }

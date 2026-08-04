@@ -2,7 +2,7 @@
 
 数学主题 Balatro 内容 Mod：猜想、大事件、熵、梗、名数——把整个数学宇宙做进小丑牌。
 
-**v0.3 早期预览**：v1 核心包 28 张 + 补遗先行 8 张 + 数学家线 6 张（共 42 张小丑）全部实装，悖论（消耗牌）先行 3 张，美术为原版占位，数值待整局平衡。欢迎试玩、反馈与投稿美术。
+**v1.0 正式版**：42 张小丑 + 5 张消耗牌（悖论 3 + 幻灵 2）+ Boss 盲注《七桥问题》+ 体验挑战《未证之旅》+ 数学小丑包（3 选 1 / 5 选 2）全部实装。美术为原版占位，数值待整局平衡。欢迎试玩、反馈与投稿美术。
 
 ## 安装
 
@@ -10,7 +10,7 @@
 2. 将本文件夹放入 `%APPDATA%/Balatro/Mods/`。
 3. 启动游戏，MODS 菜单应能看到 UNPROVEN。
 
-## 内容（v0.3 · 42 张 Joker + 3 张悖论）
+## 内容（v1.0 · 42 张 Joker + 5 张消耗 + 1 Boss + 1 挑战 + 2 小丑包）
 
 猜想线：冰雹猜想、哥德巴赫猜想、卡塔兰猜想
 
@@ -28,13 +28,21 @@
 
 悖论（消耗牌 · Tarot 槽）：熵增、四色定理 1976、蒙提霍尔问题
 
+幻灵（消耗牌 · Spectral 槽）：巴拿赫-塔斯基悖论（销毁 1 张手牌 → 2 张完全复制）、罗素的信（指定小丑失效 1 回合 → 下一手 X2）
+
+Boss 盲注：七桥问题（每种花色本回合只能计分一次）
+
+挑战《未证之旅》：菲尔兹奖 + 3 张随机负片数学家，商店探索其余内容
+
+数学小丑包：小包 3 选 1 / 超级小丑包 5 选 2，只出本 Mod 的数学小丑
+
 > 备注：`e` 需要连续 3 手得分递增 + 累计 $27 利息后才会进入商店池；`蛰伏七年` 蛰伏 7 回合后一次性发放 5 张负片传奇小丑 + 8 张负片消耗牌，此后该卡作废；`零` 需要牌组比开局少 6 张才会出现在商店（可当任意点数的万能占位符）。
 
 ## 当前状态与已知事项
 
 - **美术全部为原版占位**（不写 atlas、用原版帧），正式美术图集完成后统一替换。
 - 部分卡数值为草案，整局集成测试后将统一平衡。
-- 悖论先行 3 张已实装；幻灵（巴拿赫-塔斯基、罗素的信）、Boss 盲注（七桥问题）与优惠券等槽位待做。
+- v1.0 正本完结：v1 三件收尾（巴拿赫-塔斯基、罗素的信、七桥 Boss）已实装；后续 v1.5 补遗（传承链、对手戏、质数牌组、对偶版等）排期中。
 - `注意到……` 的角标贴纸同样为占位图标（原版 stickers 图集帧）。
 
 ## 美术占位征集 🎨
@@ -52,4 +60,4 @@ Mod 内容与代码版权归作者 jasperwang614。原版游戏版权归 LocalTh
 
 ---
 
-EN: Math-themed Balatro content mod — conjectures, history, entropy and memes. v0.3 early preview: 42 jokers (28 core + 8 addendum + 6 mathematicians) plus 3 Paradox consumables, placeholder art, requires Lovely + Steamodded 1.0+. See `%APPDATA%/Balatro/Mods/` for installation.
+EN: Math-themed Balatro content mod — conjectures, history, entropy and memes. v1.0: 42 jokers, 5 consumables (3 Paradox + 2 Counterintuitive), a Boss blind, an experience Challenge and Math Joker Packs. Placeholder art, requires Lovely + Steamodded 1.0+. See `%APPDATA%/Balatro/Mods/` for installation.

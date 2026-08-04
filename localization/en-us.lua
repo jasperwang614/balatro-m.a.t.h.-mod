@@ -397,8 +397,62 @@ return {
                 },
             },
         },
+        Spectral = {
+            c_unprv_banach = {
+                name = "Banach-Tarski Paradox",
+                text = {
+                    "Destroy {C:attention}1{} card in your hand",
+                    "Add {C:attention}2{} exact copies of it",
+                    "{C:inactive}Volume is not conserved. Intuition does not apply.{}",
+                },
+            },
+            c_unprv_russell = {
+                name = "Russell's Letter",
+                text = {
+                    "Make {C:attention}1{} Joker fail for {C:attention}1{} round",
+                    "Your next hand: {X:mult,C:white}X2{} Mult",
+                    "{C:inactive}Dear Frege, regrettably I must inform you...{}",
+                },
+            },
+        },
+        Blind = {
+            bl_unprv_konigsberg = {
+                name = "The Seven Bridges",
+                text = {
+                    "Each suit can only score",
+                    "once per round",
+                },
+            },
+        },
+        Other = {
+            p_unprv_mathpack = {
+                name = "Math Joker Pack",
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2#{} {C:joker}Math Jokers{}",
+                },
+            },
+            p_unprv_mega_mathpack = {
+                name = "Mega Math Joker Pack",
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2#{} {C:joker}Math Jokers{}",
+                },
+            },
+        },
     },
     misc = {
+        challenge_names = {
+            c_unprv_tour = "The Unproven Journey",
+        },
+        v_text = {
+            ch_c_unprv_tour_start = {
+                "Start: {C:attention}Fields Medal{} + {C:attention}3{} random negative Mathematician Jokers",
+            },
+            ch_c_unprv_tour_explore = {
+                "Explore the rest of the math in {C:attention}shops{} and {C:attention}Boss blinds{}",
+            },
+        },
         dictionary = {
             unprv_e_chips = "Chips^e",
             unprv_e_mult = "Mult^e",
@@ -416,6 +470,9 @@ return {
             unprv_zero_done = "Made it nonexistent",
             unprv_zero_already = "Already nonexistent",
             unprv_entropy_pending = "Entropy building",
+            unprv_russell_pending = "Letter sent. Logic is broken.",
+            k_booster_group_p_unprv_mathpack = "Math Joker Pack",
+            k_booster_group_p_unprv_mega_mathpack = "Mega Math Joker Pack",
         },
     },
 }

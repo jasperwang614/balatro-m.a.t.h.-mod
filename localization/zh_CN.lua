@@ -426,6 +426,22 @@ return {
                 },
             },
         },
+        Other = {
+            p_unprv_mathpack = {
+                name = "数学小丑包",
+                text = {
+                    "从最多{C:attention}#2#张{C:joker}数学小丑{}中",
+                    "选择{C:attention}#1#{}张",
+                },
+            },
+            p_unprv_mega_mathpack = {
+                name = "超级数学小丑包",
+                text = {
+                    "从最多{C:attention}#2#张{C:joker}数学小丑{}中",
+                    "选择{C:attention}#1#{}张",
+                },
+            },
+        },
         Edition = {
             e_unprv_dual = {
                 name = "对偶",
@@ -438,6 +454,17 @@ return {
         },
     },
     misc = {
+        challenge_names = {
+            c_unprv_tour = "未证之旅",
+        },
+        v_text = {
+            ch_c_unprv_tour_start = {
+                "开局：{C:attention}菲尔兹奖{} + {C:attention}3{} 张随机负片数学家",
+            },
+            ch_c_unprv_tour_explore = {
+                "其余数学内容请在{C:attention}商店{}与{C:attention}Boss 盲注{}中探索",
+            },
+        },
         dictionary = {
             k_unprv_conjecturer = "猜想者",
             k_unprv_paradox = "悖论",
@@ -458,6 +485,9 @@ return {
             unprv_zero_done = "已令其不存在",
             unprv_zero_already = "这张牌已不存在",
             unprv_entropy_pending = "熵增蓄势",
+            unprv_russell_pending = "信已寄出，逻辑被击穿",
+            k_booster_group_p_unprv_mathpack = "数学小丑包",
+            k_booster_group_p_unprv_mega_mathpack = "超级数学小丑包",
         },
     },
 }

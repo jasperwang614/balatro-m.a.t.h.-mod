@@ -30,6 +30,17 @@ SMODS.Sticker({
     order = 5,
 })
 
+-- “罗素的信”的失效角标：被指定的小丑在回合内打上红色角标，
+-- 复用原版 stickers 图集 (5,0) 帧做占位，回合结束摘除。
+SMODS.Sticker({
+    key = "unprv_letter",
+    pos = { x = 5, y = 0 },
+    badge_colour = HEX("8a2f2f"),
+    prefix_config = { key = false },
+    should_apply = false,
+    order = 6,
+})
+
 local function load_folder(folder)
     local files = NFS.getDirectoryItems(UNPRV.path .. folder)
     table.sort(files)
