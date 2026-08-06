@@ -44,10 +44,10 @@ function G.FUNCS.evaluate_play(e)
     end
 end
 
--- 回合开始：清空锁定并解禁（只解我们自己 debuff 的牌）
-local game_set_round_ref = Game.set_round
-function Game:set_round(r)
-    game_set_round_ref(self, r)
+-- 回合开始：清空锁定并解禁（只解我们自己 debuff 的牌；new_round 才是回合初始化）
+local new_round_ref = new_round
+function new_round()
+    new_round_ref()
     if G.GAME then
         G.GAME.unprv_konigsberg_suits = {}
         for _, area in ipairs({ G.hand, G.deck, G.play, G.discard }) do

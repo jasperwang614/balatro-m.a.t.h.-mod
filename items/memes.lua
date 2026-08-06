@@ -53,10 +53,10 @@ function G.FUNCS.evaluate_play(e)
     end
 end
 
--- 记录每回合开始时的余额（用于推算本回合利息）
-local game_set_round_ref = Game.set_round
-function Game:set_round(r)
-    game_set_round_ref(self, r)
+-- 记录每回合开始时的余额（用于推算本回合利息；new_round 才是回合初始化）
+local new_round_ref = new_round
+function new_round()
+    new_round_ref()
     if G.GAME then
         G.GAME.unprv_round_start_dollars = G.GAME.dollars
         G.GAME.unprv_shop_pending = true

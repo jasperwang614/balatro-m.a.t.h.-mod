@@ -19,7 +19,18 @@ local MATH_POOL = {
 }
 
 local function unprv_pick_math_joker()
-    return MATH_POOL[math.random(#MATH_POOL)]
+    -- 跳过被商店门槛 ban 的卡（如 e：3 手递增 + 27 利息后才解禁），
+    -- 否则 create_card 的 forced_key 走随机池分支会因 _type=nil 崩溃
+    local pool = {}
+    for _, key in ipairs(MATH_POOL) do
+        if not (G.GAME and G.GAME.banned_keys and G.GAME.banned_keys[key]) then
+            pool[#pool + 1] = key
+        end
+    end
+    if #pool == 0 then
+        pool = { MATH_POOL[1] }
+    end
+    return pool[math.random(#pool)]
 end
 
 return {

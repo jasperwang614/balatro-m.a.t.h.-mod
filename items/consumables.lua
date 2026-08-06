@@ -56,6 +56,62 @@ UNPRV.calculate = function(self, context)
     end
 end
 
+-- 草稿：判定前随机抄同手其他牌的点数（保留自己的花色）
+local evaluate_poker_hand_ref = evaluate_poker_hand
+function evaluate_poker_hand(cards, ...)
+    if G.play and G.play.cards then
+        local marked
+        for _, c in ipairs(G.play.cards) do
+            if c.ability and c.ability.unprv_draft then
+                marked = c
+                break
+            end
+        end
+        if marked then
+            local others = {}
+            for _, c in ipairs(G.play.cards) do
+                if c ~= marked then
+                    others[#others + 1] = c
+                end
+            end
+            if #others > 0 then
+                local donor = others[math.random(#others)]
+                for _, base_card in pairs(G.P_CARDS) do
+                    if base_card.value == donor.base.value and base_card.suit == marked.base.suit then
+                        marked:set_base(base_card)
+                        break
+                    end
+                end
+            end
+        end
+    end
+    return evaluate_poker_hand_ref(cards, ...)
+end
+
+-- 结算后：把被涂改的牌还原成原样（不污染牌组）
+local evaluate_play_ref = G.FUNCS.evaluate_play
+function G.FUNCS.evaluate_play(e)
+    evaluate_play_ref(e)
+    if G.play and G.play.cards then
+        for _, c in ipairs(G.play.cards) do
+            if c.ability and c.ability.unprv_draft then
+                local orig = c.ability.unprv_draft_orig
+                if orig then
+                    for _, base_card in pairs(G.P_CARDS) do
+                        if base_card.value == orig and base_card.suit == c.base.suit then
+                            c:set_base(base_card)
+                            break
+                        end
+                    end
+                end
+                c.ability.unprv_draft = nil
+                c.ability.unprv_draft_orig = nil
+                c:remove_sticker('unprv_draft')
+            end
+        end
+    end
+end
+
 return {
     SMODS.Consumable({
         key = 'entropy',
@@ -186,6 +242,29 @@ return {
                 colour = G.C.MULT,
             })
             G.jokers:unhighlight_all()
+        end,
+    }),
+    SMODS.Consumable({
+        key = 'draft',
+        set = 'Tarot',
+        config = { extra = {} },
+        cost = 3,
+        -- 占位：原版 Tarot 图集（2,2）帧
+        pos = { x = 2, y = 2 },
+        can_use = function(self, card)
+            return G.hand and #G.hand.highlighted >= 1
+        end,
+        use = function(self, card, area, copier)
+            local target = G.hand.highlighted[1]
+            if not target then
+                return
+            end
+            -- 草稿标记：记下原点数，下一次被打出时随机抄同手其他牌的点数，结算后还原
+            target.ability.unprv_draft = true
+            target.ability.unprv_draft_orig = target.base.value
+            target:add_sticker('unprv_draft', true)
+            target:juice_up(0.3, 0.5)
+            G.hand:unhighlight_all()
         end,
     }),
 }

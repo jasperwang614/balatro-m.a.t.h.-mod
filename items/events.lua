@@ -87,7 +87,7 @@ local function unprv_zhang_spawn(card)
             set = 'Joker',
             area = G.jokers,
             legendary = true,       -- 传奇池（含本 mod 的页边太窄与已解锁的其他 mod 传奇）
-            edition = 'negative',
+            edition = 'e_negative',
             key_append = 'unprv_zhang_joker',
         })
         if j then
@@ -100,7 +100,7 @@ local function unprv_zhang_spawn(card)
         local c = SMODS.create_card({
             set = 'Consumeables',
             area = G.consumeables,
-            edition = 'negative',
+            edition = 'e_negative',
             key_append = 'unprv_zhang_cons',
         })
         if c then
@@ -416,8 +416,8 @@ return {
             config = { extra = { counted_round = 0 } },
             rarity = 3,          -- Rare
             cost = 10,
-            -- 占位：原版（5,0）帧，美术图集完成后换 unprv_jokers
-            pos = { x = 5, y = 0 },
+            atlas = 'unprv_jokers',
+            pos = { x = 1, y = 0 },
             blueprint_compat = true,
             eternal_compat = true,
             perishable_compat = true,
