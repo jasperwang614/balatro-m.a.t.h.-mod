@@ -2,7 +2,7 @@
 
 数学主题 Balatro 内容 Mod：猜想、大事件、熵、梗、名数——把整个数学宇宙做进小丑牌。
 
-**v1.0 正式版**：42 张小丑 + 5 张消耗牌（悖论 3 + 幻灵 2）+ Boss 盲注《七桥问题》+ 体验挑战《未证之旅》+ 数学小丑包（3 选 1 / 5 选 2）全部实装。美术为原版占位，数值待整局平衡。欢迎试玩、反馈与投稿美术。
+**v1.2**：46 张小丑 + 6 张消耗牌（悖论 4 + 幻灵 2）+ Boss 盲注《七桥问题》+ 体验挑战《未证之旅》+ 数学小丑包（3 选 1 / 5 选 2）。新增"计算机与机器"线（冯·诺依曼/阿达/EDVAC/Attention）与草稿消耗牌；菲尔兹奖、卡拉比-丘流形已启用定制卡面。欢迎试玩、反馈与投稿美术。
 
 ## 安装
 
@@ -10,7 +10,7 @@
 2. 将本文件夹放入 `%APPDATA%/Balatro/Mods/`。
 3. 启动游戏，MODS 菜单应能看到 UNPROVEN。
 
-## 内容（v1.0 · 42 张 Joker + 5 张消耗 + 1 Boss + 1 挑战 + 2 小丑包）
+## 内容（v1.2 · 46 张 Joker + 6 张消耗 + 1 Boss + 1 挑战 + 2 小丑包）
 
 猜想线：冰雹猜想、哥德巴赫猜想、卡塔兰猜想
 
@@ -26,7 +26,9 @@
 
 补遗线（v1.5 先行）：G2 in box（鸡兔同笼）、陈景润 1+2、高斯求和
 
-悖论（消耗牌 · Tarot 槽）：熵增、四色定理 1976、蒙提霍尔问题
+计算机与机器线：冯·诺依曼（自复制 + 29 状态词条）、阿达·洛芙莱斯（冯·诺依曼联动，X(1.01)^M）、EDVAC（每回合加载一个程序）、Attention Is All You Need（自注意力 O(n²)）
+
+悖论（消耗牌 · Tarot 槽）：熵增、四色定理 1976、蒙提霍尔问题、草稿（标记牌打出时随机抄同手其他牌点数，结算后还原）
 
 幻灵（消耗牌 · Spectral 槽）：巴拿赫-塔斯基悖论（销毁 1 张手牌 → 2 张完全复制）、罗素的信（指定小丑失效 1 回合 → 下一手 X2）
 
@@ -40,9 +42,9 @@ Boss 盲注：七桥问题（每种花色本回合只能计分一次）
 
 ## 当前状态与已知事项
 
-- **美术全部为原版占位**（不写 atlas、用原版帧），正式美术图集完成后统一替换。
+- 定制卡面已启用 2 张（菲尔兹奖、卡拉比-丘流形，`unprv_jokers` 图集），其余仍为原版占位，欢迎投稿补全。
 - 部分卡数值为草案，整局集成测试后将统一平衡。
-- v1.0 正本完结：v1 三件收尾（巴拿赫-塔斯基、罗素的信、七桥 Boss）已实装；后续 v1.5 补遗（传承链、对手戏、质数牌组、对偶版等）排期中。
+- 后续 v1.5 补遗：传承链、对手戏（牛顿/莱布尼茨/伯努利）、质数牌组、中国数学长廊、对偶版等排期中。
 - `注意到……` 的角标贴纸同样为占位图标（原版 stickers 图集帧）。
 
 ## 美术占位征集 🎨
@@ -60,4 +62,4 @@ Mod 内容与代码版权归作者 jasperwang614。原版游戏版权归 LocalTh
 
 ---
 
-EN: Math-themed Balatro content mod — conjectures, history, entropy and memes. v1.0: 42 jokers, 5 consumables (3 Paradox + 2 Counterintuitive), a Boss blind, an experience Challenge and Math Joker Packs. Placeholder art, requires Lovely + Steamodded 1.0+. See `%APPDATA%/Balatro/Mods/` for installation.
+EN: Math-themed Balatro content mod — conjectures, history, entropy, memes and machines. v1.2: 46 jokers, 6 consumables (4 Paradox + 2 Counterintuitive), a Boss blind, an experience Challenge, Math Joker Packs, and 2 custom card arts. Requires Lovely + Steamodded 1.0+. See `%APPDATA%/Balatro/Mods/` for installation.
