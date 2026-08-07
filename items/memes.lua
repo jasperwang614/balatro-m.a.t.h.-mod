@@ -520,5 +520,39 @@ return {
                 end
             end,
         }),
+        SMODS.Joker({
+            key = "q84",
+            config = {
+                extra = { x_mult = 1984 },
+            },
+            rarity = 3,          -- Rare
+            cost = 8,
+            -- 占位：原版（1,1）帧
+            pos = { x = 1, y = 1 },
+            blueprint_compat = true,
+            eternal_compat = true,
+            perishable_compat = true,
+            order = 47,
+            calculate = function(self, card, context)
+                -- 隐藏条件：打出的牌严格按 1984（A-9-8-4）或 1Q84（A-Q-8-4）顺序
+                if context.joker_main then
+                    local ids = {}
+                    for _, c in ipairs(context.full_hand or {}) do
+                        ids[#ids + 1] = c:get_id()
+                    end
+                    if #ids == 4 then
+                        local ok1984 = ids[1] == 14 and ids[2] == 9 and ids[3] == 8 and ids[4] == 4
+                        local ok1q84 = ids[1] == 14 and ids[2] == 12 and ids[3] == 8 and ids[4] == 4
+                        if ok1984 or ok1q84 then
+                            return {
+                                message = 'X1984',
+                                xmult = card.ability.extra.x_mult,
+                                colour = G.C.XMULT,
+                            }
+                        end
+                    end
+                end
+            end,
+        }),
     },
 }

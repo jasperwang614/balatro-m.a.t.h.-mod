@@ -2,7 +2,7 @@
 
 数学主题 Balatro 内容 Mod：猜想、大事件、熵、梗、名数——把整个数学宇宙做进小丑牌。
 
-**v1.2**：46 张小丑 + 6 张消耗牌（悖论 4 + 幻灵 2）+ Boss 盲注《七桥问题》+ 体验挑战《未证之旅》+ 数学小丑包（3 选 1 / 5 选 2）。新增"计算机与机器"线（冯·诺依曼/阿达/EDVAC/Attention）与草稿消耗牌；菲尔兹奖、卡拉比-丘流形已启用定制卡面。欢迎试玩、反馈与投稿美术。
+**v1.3**：54 张小丑 + 6 张消耗牌（悖论 4 + 幻灵 2）+ Boss 盲注《七桥问题》+ 体验挑战《未证之旅》+ 数学小丑包（3 选 1 / 5 选 2）。新增传承链（约率→密率、√2→无理数时代、决斗前夜→群论）、对手戏（牛顿/莱布尼茨/伯努利家族）与谜卡 1984 / 1Q84；菲尔兹奖、卡拉比-丘流形已启用定制卡面。欢迎试玩、反馈与投稿美术。
 
 ## 安装
 
@@ -10,7 +10,7 @@
 2. 将本文件夹放入 `%APPDATA%/Balatro/Mods/`。
 3. 启动游戏，MODS 菜单应能看到 UNPROVEN。
 
-## 内容（v1.2 · 46 张 Joker + 6 张消耗 + 1 Boss + 1 挑战 + 2 小丑包）
+## 内容（v1.3 · 54 张 Joker + 6 张消耗 + 1 Boss + 1 挑战 + 2 小丑包）
 
 猜想线：冰雹猜想、哥德巴赫猜想、卡塔兰猜想
 
@@ -28,6 +28,12 @@
 
 计算机与机器线：冯·诺依曼（自复制 + 29 状态词条）、阿达·洛芙莱斯（冯·诺依曼联动，X(1.01)^M）、EDVAC（每回合加载一个程序）、Attention Is All You Need（自注意力 O(n²)）
 
+传承链：约率 22/7（被超越销毁 → 密率进店）、√2（被扔进海里 → 生成无理数时代）、决斗前夜（被销毁/出售 → 生成群论）
+
+对手戏：牛顿（每手 +0.25 X 倍率）、莱布尼茨（每手 +30 筹码）、伯努利家族（每回合随机一位，按 8 位数学家计入菲尔兹奖）
+
+谜卡：1984 / 1Q84（隐藏条件，老大哥正在看着你）
+
 悖论（消耗牌 · Tarot 槽）：熵增、四色定理 1976、蒙提霍尔问题、草稿（标记牌打出时随机抄同手其他牌点数，结算后还原）
 
 幻灵（消耗牌 · Spectral 槽）：巴拿赫-塔斯基悖论（销毁 1 张手牌 → 2 张完全复制）、罗素的信（指定小丑失效 1 回合 → 下一手 X2）
@@ -44,7 +50,7 @@ Boss 盲注：七桥问题（每种花色本回合只能计分一次）
 
 - 定制卡面已启用 2 张（菲尔兹奖、卡拉比-丘流形，`unprv_jokers` 图集），其余仍为原版占位，欢迎投稿补全。
 - 部分卡数值为草案，整局集成测试后将统一平衡。
-- 后续 v1.5 补遗：传承链、对手戏（牛顿/莱布尼茨/伯努利）、质数牌组、中国数学长廊、对偶版等排期中。
+- 后续 v1.5 补遗：质数牌组、中国数学长廊、对偶版、优惠券等排期中。
 - `注意到……` 的角标贴纸同样为占位图标（原版 stickers 图集帧）。
 
 ## 美术占位征集 🎨
@@ -62,4 +68,4 @@ Mod 内容与代码版权归作者 jasperwang614。原版游戏版权归 LocalTh
 
 ---
 
-EN: Math-themed Balatro content mod — conjectures, history, entropy, memes and machines. v1.2: 46 jokers, 6 consumables (4 Paradox + 2 Counterintuitive), a Boss blind, an experience Challenge, Math Joker Packs, and 2 custom card arts. Requires Lovely + Steamodded 1.0+. See `%APPDATA%/Balatro/Mods/` for installation.
+EN: Math-themed Balatro content mod — conjectures, history, entropy, memes and machines. v1.3: 54 jokers including the Extinction Chains and the Newton–Leibniz rivalry, 6 consumables, a Boss blind, an experience Challenge, Math Joker Packs, and 2 custom card arts. Requires Lovely + Steamodded 1.0+. See `%APPDATA%/Balatro/Mods/` for installation.

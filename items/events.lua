@@ -117,7 +117,7 @@ return {
         SMODS.Joker({
             key = "zuratio",
             config = {
-                extra = { x_mult = 1.5 },
+                extra = { x_mult = 1.5, welcome_used = false },
             },
             rarity = 2,          -- Uncommon
             cost = 6,
@@ -129,6 +129,15 @@ return {
             order = 10,
             calculate = function(self, card, context)
                 if context.joker_main then
+                    -- 传承链欢迎礼：约率被超越后获得本卡，首手 X2 一次
+                    if not card.ability.extra.welcome_used and G.GAME.unprv_zuratio_unlocked then
+                        card.ability.extra.welcome_used = true
+                        return {
+                            message = '谢谢你，22/7',
+                            xmult = 2,
+                            colour = G.C.XMULT,
+                        }
+                    end
                     local has3, has5, hasA = false, false, false
                     for _, c in ipairs(context.full_hand) do
                         local id = c:get_id()
@@ -286,6 +295,12 @@ return {
             eternal_compat = true,
             perishable_compat = true,
             order = 14,
+            remove_from_deck = function(self, card, from_debuff)
+                -- 决斗前夜被销毁/出售 → 生成群论（"他死了。群论活了下来。"）
+                if not from_debuff and G.jokers and G.jokers.cards then
+                    add_joker('j_unprv_group_theory', nil, true)
+                end
+            end,
             calculate = function(self, card, context)
                 -- 决斗前夜：仅剩 1 次出牌机会（本手牌）→ X3
                 -- 与原版 Acrobat 同口径：计分时 hands_left 已扣为 0

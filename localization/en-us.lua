@@ -105,6 +105,89 @@ return {
                     "{C:inactive}Electronic Discrete Variable Automatic Computer, birthplace of the stored program.{}",
                 },
             },
+            j_unprv_twoseven = {
+                name = "22/7",
+                text = {
+                    "If scored hand contains {C:attention}2{} and {C:attention}7{}: {X:mult,C:white}X1.5{}",
+                    "Each round, {C:attention}1/6{} chance to be surpassed and destroyed",
+                    "When destroyed, {C:attention}Zu's Ratio{} enters the shop",
+                    "{C:inactive}Good enough for centuries.{}",
+                },
+            },
+            j_unprv_sqrt2 = {
+                name = "√2",
+                text = {
+                    "Each scoring {C:attention}2{}: {X:mult,C:white}X1.414{}",
+                    "Each round, {C:attention}1/8{} chance to be thrown into the sea",
+                    "When destroyed, generates the {C:attention}Age of Irrationals{}",
+                    "{C:inactive}They threw me into the sea.{}",
+                },
+            },
+            j_unprv_irrational = {
+                name = "Age of Irrationals",
+                text = {
+                    "Each scoring {C:attention}even{} card (2/4/6/8/10/Q/A)",
+                    ": {X:mult,C:white}X14.1{} Mult",
+                    "{C:inactive}But the number survived.{}",
+                },
+            },
+            j_unprv_group_theory = {
+                name = "Group Theory",
+                text = {
+                    "When you have {C:attention}1{} hand left",
+                    "this hand: {X:mult,C:white}X5{} Mult",
+                    "{C:inactive}He died. Group theory lived.{}",
+                },
+            },
+            j_unprv_newton = {
+                name = "Newton",
+                text = {
+                    "Gain {X:mult,C:white}X0.25{} Mult permanently each hand",
+                    "Currently {X:mult,C:white}X#1#{} Mult",
+                    "{C:inactive}Halved while Leibniz is held{}",
+                    "{C:inactive}I only picked up pebbles on the shore.{}",
+                },
+            },
+            j_unprv_leibniz = {
+                name = "Leibniz",
+                text = {
+                    "Gain {C:chips}+30{} Chips permanently each hand",
+                    "Currently {C:chips}+#1#{} Chips",
+                    "{C:inactive}Halved while Newton is held{}",
+                    "{C:inactive}∫ and d, both from my hand.{}",
+                },
+            },
+            j_unprv_bernoulli = {
+                name = "The Bernoullis",
+                text = {
+                    "A different Bernoulli takes over each round",
+                    "{C:inactive}You can never tell which one it is today.{}",
+                },
+            },
+            j_unprv_bernoulli_jacob = {
+                name = "The Bernoullis",
+                text = {
+                    "Today: {C:attention}Jacob Bernoulli{}",
+                    "{C:mult}+2{} Mult each hand",
+                    "{C:inactive}You can never tell which one it is today.{}",
+                },
+            },
+            j_unprv_bernoulli_johann = {
+                name = "The Bernoullis",
+                text = {
+                    "Today: {C:attention}Johann Bernoulli{}",
+                    "If this hand scores {C:attention}0{}, recompute: {C:chips}+50{}",
+                    "{C:inactive}You can never tell which one it is today.{}",
+                },
+            },
+            j_unprv_bernoulli_daniel = {
+                name = "The Bernoullis",
+                text = {
+                    "Today: {C:attention}Daniel Bernoulli{}",
+                    "{C:green}50%{} chance {X:mult,C:white}X2{}, otherwise {X:mult,C:white}X0.5{}",
+                    "{C:inactive}You can never tell which one it is today.{}",
+                },
+            },
             j_unprv_goldbach = {
                 name = "Goldbach",
                 text = {
@@ -237,6 +320,12 @@ return {
                     "Ranks closer to the {C:attention}mean (7){} give more Mult",
                     "7: +8, 6/8: +6, 5/9: +4, 4/10: +2",
                     "{C:inactive}With enough samples, the world is a bell curve.{}",
+                },
+            },
+            j_unprv_q84 = {
+                name = "1984 / 1Q84",
+                text = {
+                    "{C:inactive}Big Brother is watching you.{}",
                 },
             },
             j_unprv_ramanujan = {

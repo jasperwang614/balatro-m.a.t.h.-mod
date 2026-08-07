@@ -104,6 +104,89 @@ return {
                     "{C:inactive}电子离散变量自动计算机，存储程序的起点。{}",
                 },
             },
+            j_unprv_twoseven = {
+                name = "约率 22/7",
+                text = {
+                    "计分含 {C:attention}2{} 和 {C:attention}7{}：{X:mult,C:white}X1.5{}",
+                    "每回合 {C:attention}1/6{} 概率被祖冲之超越销毁",
+                    "销毁后{C:attention}密率{}进入商店",
+                    "{C:inactive}够用了几百年。{}",
+                },
+            },
+            j_unprv_sqrt2 = {
+                name = "√2",
+                text = {
+                    "每张计分 {C:attention}2{}：{X:mult,C:white}X1.414{}",
+                    "每回合 {C:attention}1/8{} 概率被扔进海里销毁",
+                    "销毁后生成{C:attention}无理数时代{}",
+                    "{C:inactive}他们把我扔进了海里。{}",
+                },
+            },
+            j_unprv_irrational = {
+                name = "无理数时代",
+                text = {
+                    "每张计分{C:attention}偶数牌{}（2/4/6/8/10/Q/A）",
+                    "：{X:mult,C:white}X14.1{} 倍率",
+                    "{C:inactive}但数字留了下来。{}",
+                },
+            },
+            j_unprv_group_theory = {
+                name = "群论",
+                text = {
+                    "仅剩 {C:attention}1{} 次出牌机会时",
+                    "本手牌 {X:mult,C:white}X5{} 倍率",
+                    "{C:inactive}他死了。群论活了下来。{}",
+                },
+            },
+            j_unprv_newton = {
+                name = "牛顿",
+                text = {
+                    "每手牌永久 {X:mult,C:white}X0.25{} 倍率",
+                    "当前 {X:mult,C:white}X#1#{} 倍率",
+                    "{C:inactive}莱布尼茨在场时减半{}",
+                    "{C:inactive}我只是拾贝的孩子。{}",
+                },
+            },
+            j_unprv_leibniz = {
+                name = "莱布尼茨",
+                text = {
+                    "每手牌永久 {C:chips}+30{} 筹码",
+                    "当前 {C:chips}+#1#{} 筹码",
+                    "{C:inactive}牛顿在场时减半{}",
+                    "{C:inactive}∫ 和 d，皆出我手。{}",
+                },
+            },
+            j_unprv_bernoulli = {
+                name = "伯努利家族",
+                text = {
+                    "每回合随机换一位伯努利",
+                    "{C:inactive}你分不清今天是哪一个。{}",
+                },
+            },
+            j_unprv_bernoulli_jacob = {
+                name = "伯努利家族",
+                text = {
+                    "今天是{C:attention}雅各布·伯努利{}",
+                    "每手牌 {C:mult}+2{} 倍率",
+                    "{C:inactive}你分不清今天是哪一个。{}",
+                },
+            },
+            j_unprv_bernoulli_johann = {
+                name = "伯努利家族",
+                text = {
+                    "今天是{C:attention}约翰·伯努利{}",
+                    "本手筹码为 {C:attention}0{} 时重算：{C:chips}+50{}",
+                    "{C:inactive}你分不清今天是哪一个。{}",
+                },
+            },
+            j_unprv_bernoulli_daniel = {
+                name = "伯努利家族",
+                text = {
+                    "今天是{C:attention}丹尼尔·伯努利{}",
+                    "{C:green}50%{} 概率 {X:mult,C:white}X2{}，否则 {X:mult,C:white}X0.5{}",
+                    "{C:inactive}你分不清今天是哪一个。{}",
+                },
+            },
             j_unprv_goldbach = {
                 name = "哥德巴赫猜想",
                 text = {
@@ -354,6 +437,12 @@ return {
                     "点数越接近{C:attention}均值 7{} 奖励越高",
                     "7：+8 · 6/8：+6 · 5/9：+4 · 4/10：+2 倍率",
                     "{C:inactive}样本多了，世界就是一口钟{}",
+                },
+            },
+            j_unprv_q84 = {
+                name = "1984 / 1Q84",
+                text = {
+                    "{C:inactive}老大哥正在看着你。{}",
                 },
             },
             j_unprv_ramanujan = {

@@ -16,6 +16,10 @@ local MATH_POOL = {
     'j_unprv_pythagoras', 'j_unprv_riemann', 'j_unprv_poincare',
     'j_unprv_godel', 'j_unprv_hilbert', 'j_unprv_fields',
     'j_unprv_ramanujan', 'j_unprv_pareto', 'j_unprv_centrallimit',
+    'j_unprv_twoseven', 'j_unprv_sqrt2', 'j_unprv_irrational',
+    'j_unprv_group_theory', 'j_unprv_newton', 'j_unprv_leibniz',
+    'j_unprv_bernoulli',
+    'j_unprv_q84',
 }
 
 local function unprv_pick_math_joker()

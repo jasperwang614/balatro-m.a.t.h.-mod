@@ -15,7 +15,7 @@ local function unprv_has_joker(key)
     return false
 end
 
--- 菲尔兹奖的“数学家”注册表：现有 + 本批新增
+-- 菲尔兹奖的“数学家”注册表：新增数学家卡时记得同步这里（伯努利家族按 8 位计）
 local MATH_JOKERS = {
     ["j_unprv_chen"] = true,
     ["j_unprv_gauss"] = true,
@@ -33,12 +33,21 @@ local MATH_JOKERS = {
     ["j_unprv_poincare"] = true,
     ["j_unprv_godel"] = true,
     ["j_unprv_hilbert"] = true,
+    ["j_unprv_vonneumann"] = true,
+    ["j_unprv_lovelace"] = true,
+    ["j_unprv_newton"] = true,
+    ["j_unprv_leibniz"] = true,
+    ["j_unprv_bernoulli"] = true,
 }
 
 local function unprv_count_mathematicians()
     local n = 0
     for _, j in ipairs(G.jokers and G.jokers.cards or {}) do
-        if MATH_JOKERS[j.config.center.key] then
+        local key = j.config.center.key
+        if key == 'j_unprv_bernoulli' then
+            -- 伯努利家族：一门八杰，按 8 位数学家计数
+            n = n + 8
+        elseif MATH_JOKERS[key] then
             n = n + 1
         end
     end
