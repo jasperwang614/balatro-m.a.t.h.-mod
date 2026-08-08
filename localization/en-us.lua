@@ -339,8 +339,10 @@ return {
             j_unprv_kun = {
                 name = "Kun",
                 text = {
-                    "Scoring hand contains {C:attention}2{} and {C:attention}5{}:",
-                    "this Joker permanently gains {X:mult,C:white}X2.5{} (stacks)",
+                    "Scoring hand contains {C:attention}2{} and {C:attention}5{},",
+                    "or a lone {C:attention}K{}: practice once",
+                    "Each practice permanently {X:mult,C:white}X2.5{}",
+                    "All scoring hands gain the current multiplier",
                     "With {C:attention}G2 in box{}: practice one extra time",
                     "{C:inactive}An individual trainee with two and a half years of practice.......{}",
                 },
@@ -348,10 +350,12 @@ return {
             j_unprv_kun_count = {
                 name = "Kun",
                 text = {
-                    "Scoring hand contains {C:attention}2{} and {C:attention}5{}:",
-                    "this Joker permanently gains {X:mult,C:white}X2.5{} (stacks)",
+                    "Scoring hand contains {C:attention}2{} and {C:attention}5{},",
+                    "or a lone {C:attention}K{}: practice once",
+                    "Each practice permanently {X:mult,C:white}X2.5{}",
+                    "Practiced {C:attention}#1#{} times · current {X:mult,C:white}X#2#{}",
+                    "All scoring hands gain the current multiplier",
                     "With {C:attention}G2 in box{}: practice one extra time",
-                    "Practiced {C:attention}#1#{} times · {X:mult,C:white}X#2#{}",
                     "{C:inactive}An individual trainee with two and a half years of practice.......{}",
                 },
             },

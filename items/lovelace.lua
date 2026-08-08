@@ -11,8 +11,8 @@ return {
             },
             rarity = 3,          -- Rare
             cost = 8,
-            -- 占位：原版（7,1）帧，美术图集完成后换 unprv_jokers
-            pos = { x = 7, y = 1 },
+            atlas = 'unprv_jokers',
+            pos = { x = 3, y = 0 },
             blueprint_compat = true,
             eternal_compat = true,
             perishable_compat = true,

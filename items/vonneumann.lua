@@ -74,8 +74,8 @@ return {
             },
             rarity = 4,          -- Legendary
             cost = 20,
-            -- 占位：原版（2,1）帧，美术图集完成后换 unprv_jokers
-            pos = { x = 2, y = 1 },
+            atlas = 'unprv_jokers',
+            pos = { x = 2, y = 0 },
             blueprint_compat = true,
             eternal_compat = true,
             perishable_compat = true,

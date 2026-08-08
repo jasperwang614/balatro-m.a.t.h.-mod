@@ -456,8 +456,10 @@ return {
             j_unprv_kun = {
                 name = "Kun",
                 text = {
-                    "计分牌含 {C:attention}2{} 和 {C:attention}5{}：",
-                    "本卡永久 {X:mult,C:white}X2.5{}（可叠加）",
+                    "计分牌含 {C:attention}2{} 和 {C:attention}5{}，",
+                    "或单出一张 {C:attention}K{}：练习一次",
+                    "每练习一次永久 {X:mult,C:white}X2.5{}",
+                    "所有计分手牌都吃到当前倍率",
                     "与 {C:attention}G2 in box{} 同场：额外练习一次",
                     "{C:inactive}练习时长两年半的个.......{}",
                 },
@@ -465,10 +467,12 @@ return {
             j_unprv_kun_count = {
                 name = "Kun",
                 text = {
-                    "计分牌含 {C:attention}2{} 和 {C:attention}5{}：",
-                    "本卡永久 {X:mult,C:white}X2.5{}（可叠加）",
+                    "计分牌含 {C:attention}2{} 和 {C:attention}5{}，",
+                    "或单出一张 {C:attention}K{}：练习一次",
+                    "每练习一次永久 {X:mult,C:white}X2.5{}",
+                    "已练习 {C:attention}#1#{} 次 · 当前 {X:mult,C:white}X#2#{}",
+                    "所有计分手牌都吃到当前倍率",
                     "与 {C:attention}G2 in box{} 同场：额外练习一次",
-                    "已练习 {C:attention}#1#{} 次 · {X:mult,C:white}X#2#{}",
                     "{C:inactive}练习时长两年半的个.......{}",
                 },
             },
