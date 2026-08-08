@@ -336,6 +336,25 @@ return {
                     "{C:inactive}Big Brother is watching you.{}",
                 },
             },
+            j_unprv_kun = {
+                name = "Kun",
+                text = {
+                    "Scoring hand contains {C:attention}2{} and {C:attention}5{}:",
+                    "this Joker permanently gains {X:mult,C:white}X2.5{} (stacks)",
+                    "With {C:attention}G2 in box{}: practice one extra time",
+                    "{C:inactive}An individual trainee with two and a half years of practice.......{}",
+                },
+            },
+            j_unprv_kun_count = {
+                name = "Kun",
+                text = {
+                    "Scoring hand contains {C:attention}2{} and {C:attention}5{}:",
+                    "this Joker permanently gains {X:mult,C:white}X2.5{} (stacks)",
+                    "With {C:attention}G2 in box{}: practice one extra time",
+                    "Practiced {C:attention}#1#{} times · {X:mult,C:white}X#2#{}",
+                    "{C:inactive}An individual trainee with two and a half years of practice.......{}",
+                },
+            },
             j_unprv_ramanujan = {
                 name = "1729",
                 text = {

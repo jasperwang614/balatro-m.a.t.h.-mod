@@ -453,6 +453,25 @@ return {
                     "{C:inactive}老大哥正在看着你。{}",
                 },
             },
+            j_unprv_kun = {
+                name = "Kun",
+                text = {
+                    "计分牌含 {C:attention}2{} 和 {C:attention}5{}：",
+                    "本卡永久 {X:mult,C:white}X2.5{}（可叠加）",
+                    "与 {C:attention}G2 in box{} 同场：额外练习一次",
+                    "{C:inactive}练习时长两年半的个.......{}",
+                },
+            },
+            j_unprv_kun_count = {
+                name = "Kun",
+                text = {
+                    "计分牌含 {C:attention}2{} 和 {C:attention}5{}：",
+                    "本卡永久 {X:mult,C:white}X2.5{}（可叠加）",
+                    "与 {C:attention}G2 in box{} 同场：额外练习一次",
+                    "已练习 {C:attention}#1#{} 次 · {X:mult,C:white}X#2#{}",
+                    "{C:inactive}练习时长两年半的个.......{}",
+                },
+            },
             j_unprv_ramanujan = {
                 name = "1729",
                 text = {

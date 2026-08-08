@@ -2,7 +2,7 @@
 
 数学主题 Balatro 内容 Mod：猜想、大事件、熵、梗、名数——把整个数学宇宙做进小丑牌。
 
-**v1.4**：55 张小丑 + 6 张消耗牌 + 4 张优惠券链 + 1 个自定义牌组 + 8 个成就。新增成就系统、质数牌组、格林-陶定理与四书优惠券链（《几何原本》→《算术研究》、《数学原理》→ GEB）；传承链、对手戏、计算机与机器线均已实装。菲尔兹奖、卡拉比-丘流形已启用定制卡面。欢迎试玩、反馈与投稿美术。
+**v1.4.1**：56 张小丑 + 6 张消耗牌 + 4 张优惠券链 + 1 个自定义牌组 + 8 个成就。v1.4 新增成就系统、质数牌组、格林-陶定理与四书优惠券链；v1.4.1 新增传说小丑 Kun——计分牌含 2 和 5 时永久 X2.5（可叠加），与 G2 in box 同场触发"鸡你太美"彩蛋。菲尔兹奖、卡拉比-丘流形已启用定制卡面。欢迎试玩、反馈与投稿美术。
 
 ## 安装
 
@@ -10,7 +10,7 @@
 2. 将本文件夹放入 `%APPDATA%/Balatro/Mods/`。
 3. 启动游戏，MODS 菜单应能看到 UNPROVEN。
 
-## 内容（v1.4 · 55 张 Joker + 6 消耗 + 4 优惠券 + 1 牌组 + 8 成就 + 1 Boss + 1 挑战 + 2 小丑包）
+## 内容（v1.4.1 · 56 张 Joker + 6 消耗 + 4 优惠券 + 1 牌组 + 8 成就 + 1 Boss + 1 挑战 + 2 小丑包）
 
 猜想线：冰雹猜想、哥德巴赫猜想、卡塔兰猜想
 
@@ -18,7 +18,7 @@
 
 熵线：香农熵、二进制、热寂、麦克斯韦妖
 
-梗线：e、73、0.999…=1、1+1=10、由对称性、奇变偶不变、蒙特卡洛方法、二八定律、中心极限定理、注意到……、不妨设
+梗线：e、73、0.999…=1、1+1=10、由对称性、奇变偶不变、蒙特卡洛方法、二八定律、中心极限定理、注意到……、不妨设、Kun（练习时长两年半：计分牌含 2 和 5 → 永久 X2.5 叠加；与 G2 in box 同场触发"鸡你太美"彩蛋）
 
 名数线：777、φ·黄金分割、24 点、1729、棋盘麦粒、数字黑洞 6174、零
 
@@ -76,4 +76,4 @@ Mod 内容与代码版权归作者 jasperwang614。原版游戏版权归 LocalTh
 
 ---
 
-EN: Math-themed Balatro content mod — conjectures, history, entropy, memes and machines. v1.4: 55 jokers, 6 consumables, a 4-voucher chain, a custom Prime Deck, 8 achievements, a Boss blind, an experience Challenge, Math Joker Packs, and 2 custom card arts. Requires Lovely + Steamodded 1.0+. See `%APPDATA%/Balatro/Mods/` for installation.
+EN: Math-themed Balatro content mod — conjectures, history, entropy, memes and machines. v1.4.1: 56 jokers, 6 consumables, a 4-voucher chain, a custom Prime Deck, 8 achievements, a Boss blind, an experience Challenge, Math Joker Packs, 2 custom card arts, and the legendary meme Joker Kun (permanent X2.5 stacking on 2+5 hands). Requires Lovely + Steamodded 1.0+. See `%APPDATA%/Balatro/Mods/` for installation.
