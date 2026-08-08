@@ -54,6 +54,17 @@ local function unprv_count_mathematicians()
     return n
 end
 
+-- 数学家卡计数（每张卡算 1，伯努利家族不算 8）——成就"数学家集结"用
+UNPRV.count_mathematician_cards = function()
+    local n = 0
+    for _, j in ipairs(G.jokers and G.jokers.cards or {}) do
+        if MATH_JOKERS[j.config.center.key] then
+            n = n + 1
+        end
+    end
+    return n
+end
+
 return {
     items = {
         SMODS.Joker({
@@ -272,6 +283,9 @@ return {
                 -- 计分：每张数学家小丑 +30 倍率、+15 筹码
                 if context.joker_main then
                     local n = unprv_count_mathematicians()
+                    if n >= 10 then
+                        UNPRV.unlock('ach_unprv_bernoulli_fields')
+                    end
                     if n > 0 then
                         return {
                             message = "+" .. (e.mult * n) .. " / +" .. (e.chips * n),

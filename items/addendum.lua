@@ -99,6 +99,7 @@ return {
                     end
                     local sol = SOLVED[H] and SOLVED[H][L]
                     if sol then
+                        UNPRV.unlock('ach_unprv_g2inbox')
                         return {
                             message = localize{ type = 'variable', key = 'a_xmult', vars = { e.rabbit_floor + sol.rabbits } },
                             chips = e.chips_per_chicken * sol.chickens,

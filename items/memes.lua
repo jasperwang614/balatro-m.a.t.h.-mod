@@ -78,6 +78,7 @@ function Game:update_shop(dt)
         end
         if G.GAME.unprv_e_streak_met and (G.GAME.unprv_interest_total or 0) >= 27 then
             G.GAME.banned_keys["j_unprv_euler"] = nil
+            UNPRV.unlock('ach_unprv_e_gate')
         else
             G.GAME.banned_keys["j_unprv_euler"] = true
         end
@@ -544,6 +545,7 @@ return {
                         local ok1984 = ids[1] == 14 and ids[2] == 9 and ids[3] == 8 and ids[4] == 4
                         local ok1q84 = ids[1] == 14 and ids[2] == 12 and ids[3] == 8 and ids[4] == 4
                         if ok1984 or ok1q84 then
+                            UNPRV.unlock('ach_unprv_q84')
                             return {
                                 message = 'X1984',
                                 xmult = card.ability.extra.x_mult,

@@ -187,6 +187,14 @@ return {
                     "{C:inactive}你分不清今天是哪一个。{}",
                 },
             },
+            j_unprv_green_tao = {
+                name = "格林-陶定理",
+                text = {
+                    "≥{C:attention}3{} 张质数牌成{C:attention}等差{}",
+                    "（如 3,5,7 / 3,7,J）：{X:mult,C:white}X3{}",
+                    "{C:inactive}证出它那年，陶哲轩 29 岁。{}",
+                },
+            },
             j_unprv_goldbach = {
                 name = "哥德巴赫猜想",
                 text = {
@@ -585,6 +593,52 @@ return {
                 },
             },
         },
+        Back = {
+            b_unprv_prime = {
+                name = "质数牌组",
+                text = {
+                    "全副仅 {C:attention}24{} 张质数牌",
+                    "（2/3/5/7/J/K × 四花色）",
+                    "开局自带{C:attention}哥德巴赫猜想{}",
+                    "{C:inactive}素数是最孤独的数字。{}",
+                },
+            },
+        },
+        Voucher = {
+            v_unprv_elements = {
+                name = "《几何原本》",
+                text = {
+                    "手牌上限 {C:attention}+1{}",
+                    "{C:inactive}十三卷，两千年的教科书。{}",
+                },
+            },
+            v_unprv_disquisitiones = {
+                name = "《算术研究》",
+                text = {
+                    "每张计分{C:attention}质数牌{}",
+                    "{C:mult}+4{} 倍率",
+                    "{C:inactive}需《几何原本》{}",
+                    "{C:inactive}数学是科学的皇后，数论是数学的皇后。{}",
+                },
+            },
+            v_unprv_principia = {
+                name = "《数学原理》",
+                text = {
+                    "所有 {C:attention}A{} 计分 {C:chips}+2{} 筹码",
+                    "{C:inactive}第三卷，第 362 页：{}",
+                    "{C:inactive}由本命题可推，1+1=2。{}",
+                    "{C:inactive}证毕。{}",
+                },
+            },
+            v_unprv_geb = {
+                name = "GEB",
+                text = {
+                    "所有 {C:attention}A{} 计分 {X:mult,C:white}X2{}",
+                    "{C:inactive}需《数学原理》{}",
+                    "{C:inactive}怪圈，无处不在。{}",
+                },
+            },
+        },
         Edition = {
             e_unprv_dual = {
                 name = "对偶",
@@ -599,6 +653,30 @@ return {
     misc = {
         challenge_names = {
             c_unprv_tour = "未证之旅",
+        },
+        achievement_names = {
+            ach_unprv_q84 = "老大哥在看着",
+            ach_unprv_q84_hidden = "？？？",
+            ach_unprv_g2inbox = "鸡兔同笼",
+            ach_unprv_chain_galois = "群论永生",
+            ach_unprv_chain_galois_hidden = "？？？",
+            ach_unprv_vn29 = "通用构造器",
+            ach_unprv_bernoulli_fields = "一门八杰",
+            ach_unprv_maths_win = "数学家集结",
+            ach_unprv_e_gate = "e 的极限",
+            ach_unprv_mathpack = "数学包收藏家",
+        },
+        achievement_descriptions = {
+            ach_unprv_q84 = "触发 1984 / 1Q84 的隐藏顺序条件",
+            ach_unprv_q84_hidden = "？？？",
+            ach_unprv_g2inbox = "触发 G2 in box 的解笼条件",
+            ach_unprv_chain_galois = "决斗前夜消亡后，群论诞生",
+            ach_unprv_chain_galois_hidden = "？？？",
+            ach_unprv_vn29 = "冯·诺依曼滚满 29 张复制体",
+            ach_unprv_bernoulli_fields = "伯努利家族与菲尔兹奖计数达到 10",
+            ach_unprv_maths_win = "单局持有 5 位不同数学家小丑并获胜",
+            ach_unprv_e_gate = "满足 e 的商店门槛",
+            ach_unprv_mathpack = "累计打开 5 个数学小丑包",
         },
         v_text = {
             ch_c_unprv_tour_start = {

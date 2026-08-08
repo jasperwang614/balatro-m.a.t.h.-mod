@@ -59,6 +59,9 @@ function G.FUNCS.evaluate_play(e)
         for i = 1, to_spawn do
             unprv_vn_spawn()
         end
+        if unprv_vn_count() >= VN_MAX then
+            UNPRV.unlock('ach_unprv_vn29')
+        end
     end
 end
 

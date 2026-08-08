@@ -188,6 +188,14 @@ return {
                     "{C:inactive}You can never tell which one it is today.{}",
                 },
             },
+            j_unprv_green_tao = {
+                name = "Green-Tao Theorem",
+                text = {
+                    "{C:attention}3+{} prime cards in arithmetic progression",
+                    "(e.g. 3,5,7 / 3,7,J): {X:mult,C:white}X3{}",
+                    "{C:inactive}He proved it at 29.{}",
+                },
+            },
             j_unprv_goldbach = {
                 name = "Goldbach",
                 text = {
@@ -584,10 +592,80 @@ return {
                 },
             },
         },
+        Back = {
+            b_unprv_prime = {
+                name = "Prime Deck",
+                text = {
+                    "Only {C:attention}24{} prime cards",
+                    "(2/3/5/7/J/K × four suits)",
+                    "Start with {C:attention}Goldbach's Conjecture{}",
+                    "{C:inactive}Primes are the loneliest numbers.{}",
+                },
+            },
+        },
+        Voucher = {
+            v_unprv_elements = {
+                name = "The Elements",
+                text = {
+                    "{C:attention}+1{} Hand Size",
+                    "{C:inactive}Thirteen books, two thousand years of textbooks.{}",
+                },
+            },
+            v_unprv_disquisitiones = {
+                name = "Disquisitiones",
+                text = {
+                    "Each scoring {C:attention}prime{} card:",
+                    "{C:mult}+4{} Mult",
+                    "{C:inactive}Requires The Elements{}",
+                    "{C:inactive}Mathematics is the queen of sciences; number theory, its crown.{}",
+                },
+            },
+            v_unprv_principia = {
+                name = "Principia Mathematica",
+                text = {
+                    "All {C:attention}Aces{} score {C:chips}+2{} Chips",
+                    "{C:inactive}Volume III, page 362:{}",
+                    "{C:inactive}By this proposition, 1+1=2.{}",
+                    "{C:inactive}Q.E.D.{}",
+                },
+            },
+            v_unprv_geb = {
+                name = "GEB",
+                text = {
+                    "All {C:attention}Aces{} score {X:mult,C:white}X2{}",
+                    "{C:inactive}Requires Principia Mathematica{}",
+                    "{C:inactive}Strange loops, everywhere.{}",
+                },
+            },
+        },
     },
     misc = {
         challenge_names = {
             c_unprv_tour = "The Unproven Journey",
+        },
+        achievement_names = {
+            ach_unprv_q84 = "Big Brother Is Watching",
+            ach_unprv_q84_hidden = "???",
+            ach_unprv_g2inbox = "Chicken & Rabbit in a Box",
+            ach_unprv_chain_galois = "Group Theory Lives",
+            ach_unprv_chain_galois_hidden = "???",
+            ach_unprv_vn29 = "Universal Constructor",
+            ach_unprv_bernoulli_fields = "Eight in One Family",
+            ach_unprv_maths_win = "Math Team",
+            ach_unprv_e_gate = "The Limit of e",
+            ach_unprv_mathpack = "Pack Collector",
+        },
+        achievement_descriptions = {
+            ach_unprv_q84 = "Trigger 1984 / 1Q84's hidden sequence",
+            ach_unprv_q84_hidden = "???",
+            ach_unprv_g2inbox = "Solve G2 in box's cage puzzle",
+            ach_unprv_chain_galois = "Group theory is born from Galois's death",
+            ach_unprv_chain_galois_hidden = "???",
+            ach_unprv_vn29 = "Fill von Neumann's swarm to 29 copies",
+            ach_unprv_bernoulli_fields = "Reach a Fields Medal count of 10 with the Bernoullis",
+            ach_unprv_maths_win = "Win a run with 5 different mathematician Jokers",
+            ach_unprv_e_gate = "Unlock e's shop gate",
+            ach_unprv_mathpack = "Open 5 Math Joker Packs in total",
         },
         v_text = {
             ch_c_unprv_tour_start = {

@@ -2,7 +2,7 @@
 
 数学主题 Balatro 内容 Mod：猜想、大事件、熵、梗、名数——把整个数学宇宙做进小丑牌。
 
-**v1.3**：54 张小丑 + 6 张消耗牌（悖论 4 + 幻灵 2）+ Boss 盲注《七桥问题》+ 体验挑战《未证之旅》+ 数学小丑包（3 选 1 / 5 选 2）。新增传承链（约率→密率、√2→无理数时代、决斗前夜→群论）、对手戏（牛顿/莱布尼茨/伯努利家族）与谜卡 1984 / 1Q84；菲尔兹奖、卡拉比-丘流形已启用定制卡面。欢迎试玩、反馈与投稿美术。
+**v1.4**：55 张小丑 + 6 张消耗牌 + 4 张优惠券链 + 1 个自定义牌组 + 8 个成就。新增成就系统、质数牌组、格林-陶定理与四书优惠券链（《几何原本》→《算术研究》、《数学原理》→ GEB）；传承链、对手戏、计算机与机器线均已实装。菲尔兹奖、卡拉比-丘流形已启用定制卡面。欢迎试玩、反馈与投稿美术。
 
 ## 安装
 
@@ -10,7 +10,7 @@
 2. 将本文件夹放入 `%APPDATA%/Balatro/Mods/`。
 3. 启动游戏，MODS 菜单应能看到 UNPROVEN。
 
-## 内容（v1.3 · 54 张 Joker + 6 张消耗 + 1 Boss + 1 挑战 + 2 小丑包）
+## 内容（v1.4 · 55 张 Joker + 6 消耗 + 4 优惠券 + 1 牌组 + 8 成就 + 1 Boss + 1 挑战 + 2 小丑包）
 
 猜想线：冰雹猜想、哥德巴赫猜想、卡塔兰猜想
 
@@ -34,6 +34,8 @@
 
 谜卡：1984 / 1Q84（隐藏条件，老大哥正在看着你）
 
+数论线：格林-陶定理（≥3 张质数牌成等差 → X3，如 3,5,7 / 3,7,J）
+
 悖论（消耗牌 · Tarot 槽）：熵增、四色定理 1976、蒙提霍尔问题、草稿（标记牌打出时随机抄同手其他牌点数，结算后还原）
 
 幻灵（消耗牌 · Spectral 槽）：巴拿赫-塔斯基悖论（销毁 1 张手牌 → 2 张完全复制）、罗素的信（指定小丑失效 1 回合 → 下一手 X2）
@@ -44,13 +46,19 @@ Boss 盲注：七桥问题（每种花色本回合只能计分一次）
 
 数学小丑包：小包 3 选 1 / 超级小丑包 5 选 2，只出本 Mod 的数学小丑
 
+质数牌组：全副仅 24 张质数牌（2/3/5/7/J/K × 四花色），开局自带哥德巴赫猜想
+
+优惠券链：《几何原本》手牌上限 +1 → 《算术研究》每张计分质数牌 +4 倍率；《数学原理》所有 A +2 筹码 → GEB 所有 A X2（买前置才出后继）
+
+成就系统（8 个）：老大哥在看着、鸡兔同笼、群论永生、通用构造器、一门八杰、数学家集结、e 的极限、数学包收藏家
+
 > 备注：`e` 需要连续 3 手得分递增 + 累计 $27 利息后才会进入商店池；`蛰伏七年` 蛰伏 7 回合后一次性发放 5 张负片传奇小丑 + 8 张负片消耗牌，此后该卡作废；`零` 需要牌组比开局少 6 张才会出现在商店（可当任意点数的万能占位符）。
 
 ## 当前状态与已知事项
 
 - 定制卡面已启用 2 张（菲尔兹奖、卡拉比-丘流形，`unprv_jokers` 图集），其余仍为原版占位，欢迎投稿补全。
 - 部分卡数值为草案，整局集成测试后将统一平衡。
-- 后续 v1.5 补遗：质数牌组、中国数学长廊、对偶版、优惠券等排期中。
+- 后续 v1.5 大更新：中国数学长廊（杨辉三角/十二平均律）、对偶版、更多卡面等排期中。
 - `注意到……` 的角标贴纸同样为占位图标（原版 stickers 图集帧）。
 
 ## 美术占位征集 🎨
@@ -68,4 +76,4 @@ Mod 内容与代码版权归作者 jasperwang614。原版游戏版权归 LocalTh
 
 ---
 
-EN: Math-themed Balatro content mod — conjectures, history, entropy, memes and machines. v1.3: 54 jokers including the Extinction Chains and the Newton–Leibniz rivalry, 6 consumables, a Boss blind, an experience Challenge, Math Joker Packs, and 2 custom card arts. Requires Lovely + Steamodded 1.0+. See `%APPDATA%/Balatro/Mods/` for installation.
+EN: Math-themed Balatro content mod — conjectures, history, entropy, memes and machines. v1.4: 55 jokers, 6 consumables, a 4-voucher chain, a custom Prime Deck, 8 achievements, a Boss blind, an experience Challenge, Math Joker Packs, and 2 custom card arts. Requires Lovely + Steamodded 1.0+. See `%APPDATA%/Balatro/Mods/` for installation.

@@ -299,6 +299,7 @@ return {
                 -- 决斗前夜被销毁/出售 → 生成群论（"他死了。群论活了下来。"）
                 if not from_debuff and G.jokers and G.jokers.cards then
                     add_joker('j_unprv_group_theory', nil, true)
+                    UNPRV.unlock('ach_unprv_chain_galois')
                 end
             end,
             calculate = function(self, card, context)

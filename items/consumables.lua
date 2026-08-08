@@ -7,6 +7,32 @@
 -- 熵增：本回合下一手牌，高牌 X3 / 对子 X2（鬼抽救星）
 -- 罗素的信：下一手牌 X2（配合“指定小丑失效”使用）
 UNPRV.calculate = function(self, context)
+    -- 优惠券计分效果：算术研究（质数牌 +4 倍率）、数学原理（A +2 筹码）、GEB（A X2）
+    if context.individual and context.cardarea == G.play and G.GAME and G.GAME.used_vouchers then
+        local id = context.other_card and context.other_card:get_id()
+        if id then
+            local v = G.GAME.used_vouchers
+            local ret
+            if v['v_unprv_disquisitiones'] and UNPRV.prime_set and UNPRV.prime_set[id] then
+                ret = { message = '+4', mult = 4, colour = G.C.MULT }
+            end
+            if v['v_unprv_principia'] and id == 14 then
+                ret = ret or {}
+                ret.chips = (ret.chips or 0) + 2
+                ret.message = 'A +2'
+                ret.colour = G.C.CHIPS
+            end
+            if v['v_unprv_geb'] and id == 14 then
+                ret = ret or {}
+                ret.xmult = (ret.xmult or 1) * 2
+                ret.message = 'A X2'
+                ret.colour = G.C.XMULT
+            end
+            if ret then
+                return ret
+            end
+        end
+    end
     -- 一次性“下一手牌”倍率：在 initial_scoring_step 触发（该上下文在基础倍率定稿后、逐卡计分前，
     -- 且带 scoring_name）。不能用 before 上下文——那之后基础倍率会被重新赋值，X 会被冲掉。
     if context.initial_scoring_step and context.scoring_name and G.GAME then

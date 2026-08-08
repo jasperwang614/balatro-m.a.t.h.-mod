@@ -10,7 +10,7 @@ function UNPRV.num(v)
     if type(v) == "string" then
         return tonumber(v:gsub(",", "")) or 0
     end
-    return 0
+return 0
 end
 
 -- 开发期暂用原版图集占位（各 Joker 不写 atlas，SMODS 默认用原版 Joker 图集，

@@ -20,6 +20,7 @@ local MATH_POOL = {
     'j_unprv_group_theory', 'j_unprv_newton', 'j_unprv_leibniz',
     'j_unprv_bernoulli',
     'j_unprv_q84',
+    'j_unprv_green_tao',
 }
 
 local function unprv_pick_math_joker()
@@ -37,6 +38,16 @@ local function unprv_pick_math_joker()
     return pool[math.random(#pool)]
 end
 
+-- 数学包收藏家：累计打开 5 个数学小丑包
+local function unprv_mathpack_opened()
+    if G.GAME then
+        G.GAME.unprv_mathpack_opened = (G.GAME.unprv_mathpack_opened or 0) + 1
+        if G.GAME.unprv_mathpack_opened >= 5 then
+            UNPRV.unlock('ach_unprv_mathpack')
+        end
+    end
+end
+
 return {
     items = {
         SMODS.Booster({
@@ -47,6 +58,9 @@ return {
             -- 占位：原版 Buffoon Pack 帧
             pos = { x = 0, y = 8 },
             create_card = function(self, card, i)
+                if i == 1 then
+                    unprv_mathpack_opened()
+                end
                 return { key = unprv_pick_math_joker(), area = G.pack_cards, skip_materialize = true }
             end,
         }),
@@ -58,6 +72,9 @@ return {
             -- 占位：原版 Mega Buffoon Pack 帧
             pos = { x = 3, y = 8 },
             create_card = function(self, card, i)
+                if i == 1 then
+                    unprv_mathpack_opened()
+                end
                 return { key = unprv_pick_math_joker(), area = G.pack_cards, skip_materialize = true }
             end,
         }),
