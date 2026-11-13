@@ -30,15 +30,11 @@ end
 -- 开发调试：开新局自动把“当前测试中的卡”加入小丑栏，省去控制台刷卡。
 -- 列表里放当前测试卡 + 联动测试用的原版卡（如泼溅 j_splash）；做下一张时改这里。
 -- 正式发布时置为 nil 或删掉本段。
-local DEBUG_ADD_CARDS = {
-    -- 2026-08-09 Kun 核弹测试：Kun + G2 in box（鸡你太美彩蛋）
-    'j_unprv_kun',
-    'j_unprv_g2inbox',
-}
-
-local DEBUG_ADD_CONSUMABLES = {
-    -- 清空
-}
+-- 2026-11-14 关闭：Kun 测试已完成，正式版不再自动送卡。需要重新测时把下面两行注释放开。
+-- local DEBUG_ADD_CARDS = { 'j_unprv_kun', 'j_unprv_g2inbox' }
+-- local DEBUG_ADD_CONSUMABLES = { 'c_unprv_xxx' }
+local DEBUG_ADD_CARDS = nil
+local DEBUG_ADD_CONSUMABLES = nil
 
 if DEBUG_ADD_CARDS or DEBUG_ADD_CONSUMABLES then
     local game_start_run_ref = Game.start_run
@@ -73,7 +69,9 @@ end
 -- 再挂一层 start_run 后处理，把存档里已摇好的 blind_choices.Boss 也改成钩子，
 -- 这样“继续旧存档”时当前/下一个 Boss 立即生效（战斗中途存的局不影响正在打的那个）。
 -- 正式发布时置为 nil 或删掉本段。
-local DEBUG_FORCE_BOSS = 'bl_hook'
+-- 2026-11-14 关闭：钩子测试已完成，Boss 恢复原版随机（G.FORCE_BOSS 不再设置）。
+-- 需要重测时把下一行改回 local DEBUG_FORCE_BOSS = 'bl_hook'。
+local DEBUG_FORCE_BOSS = nil
 
 if DEBUG_FORCE_BOSS then
 	G.FORCE_BOSS = DEBUG_FORCE_BOSS
