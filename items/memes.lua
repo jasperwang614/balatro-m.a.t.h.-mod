@@ -68,15 +68,18 @@ local game_update_shop_ref = Game.update_shop
 function Game:update_shop(dt)
     if G.GAME then
         if G.GAME.unprv_shop_pending then
-            local base = G.GAME.unprv_round_start_dollars or G.GAME.dollars
+            -- 余额必须过 UNPRV.num：跨大数系统的存档（如 Amulet 会话写的档）会在 Talisman 下
+            -- 把小数值也重建成大数表，裸比较 `base >= 5` 会触发 "attempt to compare number with table" 崩溃
+            local base = UNPRV.num(G.GAME.unprv_round_start_dollars or G.GAME.dollars)
             local interest = 0
             if base >= 5 and not (G.GAME.modifiers and G.GAME.modifiers.no_interest) then
-                interest = G.GAME.interest_amount * math.min(math.floor(base / 5), G.GAME.interest_cap / 5)
+                interest = UNPRV.num(G.GAME.interest_amount)
+                    * math.min(math.floor(base / 5), UNPRV.num(G.GAME.interest_cap) / 5)
             end
-            G.GAME.unprv_interest_total = (G.GAME.unprv_interest_total or 0) + interest
+            G.GAME.unprv_interest_total = UNPRV.num(G.GAME.unprv_interest_total or 0) + interest
             G.GAME.unprv_shop_pending = false
         end
-        if G.GAME.unprv_e_streak_met and (G.GAME.unprv_interest_total or 0) >= 27 then
+        if G.GAME.unprv_e_streak_met and UNPRV.num(G.GAME.unprv_interest_total or 0) >= 27 then
             G.GAME.banned_keys["j_unprv_euler"] = nil
             UNPRV.unlock('ach_unprv_e_gate')
         else

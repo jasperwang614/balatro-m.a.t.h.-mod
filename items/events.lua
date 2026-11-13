@@ -37,9 +37,12 @@ local function unprv_has_perelman()
 end
 
 -- 本回合应发的利息（与结算逻辑同款公式）
+-- 余额走 UNPRV.num：跨大数系统的存档会把小数值重建成大数表，裸比较会崩溃（同 memes.lua 利息钩子）
 local function unprv_perelman_interest()
-    if G.GAME.dollars >= 5 and not G.GAME.modifiers.no_interest then
-        return G.GAME.interest_amount * math.min(math.floor(G.GAME.dollars / 5), G.GAME.interest_cap / 5)
+    local dollars = UNPRV.num(G.GAME.dollars)
+    if dollars >= 5 and not G.GAME.modifiers.no_interest then
+        return UNPRV.num(G.GAME.interest_amount)
+            * math.min(math.floor(dollars / 5), UNPRV.num(G.GAME.interest_cap) / 5)
     end
     return 0
 end
